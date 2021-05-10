@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+
+/* default values */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header and navbar */
+
+.header{
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+/* Hamburger style */
+
+.hamburger {
+    display: none;
+}
+
+/* style for other elements */
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #475569;
+}
+
+.nav-link:hover {
+    color: #78879C;
+    border-bottom: 3px solid #78879C;
+}
+
+/* style for search bar and button */
+
+#search-bar input[type=text] {
+    padding: 6px;
+    float: left;
+    font-size: 1.7rem;
+    color: #475569;
+    margin: auto;
+    width: 70%;
+}
+
+#search-bar {
+    margin: auto;
+    width: 40%;
+}
+
+#search-bar button {
+    float: right;
+    padding: 6px 10px;
+    background: white;
+    color: #475569;
+    font-size: 1.7rem;
+    border: 2px solid #475569;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: auto;
+    width: 20%;
+}
+
+#search-bar button:hover {
+    background-color: #475569;
+    color: white;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 768px) {
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    #search-bar {
+        width: 60%;
+    }
+
+    #search-bar button {
+        width: 25%;
+        font-size: 1.4rem;
+    }
+
+    #search-bar input[type=text] {
+        font-size: 1.4rem;
+    }
+
+}
