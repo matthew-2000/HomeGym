@@ -23,7 +23,7 @@ a {
 /* Header and navbar */
 
 .header{
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid #2F2B8C;
 }
 
 .navbar {
@@ -54,12 +54,12 @@ a {
 .nav-link {
     font-size: 1.6rem;
     font-weight: 400;
-    color: #475569;
+    color: #272559;
 }
 
 .nav-link:hover {
-    color: #78879C;
-    border-bottom: 3px solid #78879C;
+    color: #2F2B8C;
+    border-bottom: 3px solid #2F2B8C;
 }
 
 /* style for search bar and button */
@@ -68,7 +68,7 @@ a {
     padding: 6px;
     float: left;
     font-size: 1.7rem;
-    color: #475569;
+    color: #272559;
     margin: auto;
     width: 70%;
 }
@@ -82,9 +82,9 @@ a {
     float: right;
     padding: 6px 10px;
     background: white;
-    color: #475569;
+    color: #272559;
     font-size: 1.7rem;
-    border: 2px solid #475569;
+    border: 2px solid #272559;
     cursor: pointer;
     border-radius: 12px;
     margin: auto;
@@ -92,7 +92,7 @@ a {
 }
 
 #search-bar button:hover {
-    background-color: #475569;
+    background-color: #272559;
     color: white;
 }
 
@@ -105,7 +105,7 @@ a {
         left: -100%;
         top: 5rem;
         flex-direction: column;
-        background-color: #fff;
+        background-color: white;
         width: 100%;
         border-radius: 10px;
         text-align: center;
