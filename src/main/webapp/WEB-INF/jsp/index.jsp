@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,6 @@
         var i = 0;
         var images = [];
         var times = 3000;
-
         //Lista di immagini
         images[0] = "./images/sliderIndex/allenamento1.jpg";
         images[1] = "./images/sliderIndex/allenamento2.jpg";
@@ -39,8 +39,9 @@
 
 
     <section class="lista_prodotti">
-        <h1 id="title">I Più venduti</h1>
+        <h1 id="title">I più venduti</h1>
         <div class="container-prodotti">
+
             <c:forEach items="${venduti}" var="venduto">
                 <div class="card">
                     <h1 id="nome-prodotto">${venduto.nome}</h1>

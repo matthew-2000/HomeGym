@@ -1,25 +1,36 @@
-body{font-family: Arial}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 
-#slider{
-    width: 100%;
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
-.immagini{
+body {
+    font-size: 1.6rem;
+}
+
+#slider {
+    margin: auto;
+    width: 70%;
+}
+
+.immagini {
     width: 100%;
     height: 500px;
 }
 
-.lista_prodotti{
+.lista_prodotti {
     background-color: white;
     padding: 3em;
 }
 
-.lista_prodotti #title{
-    border-bottom: 2px solid #15478F;
+.lista_prodotti #title {
+    color: #475569;
+    border-bottom: 1.5px solid #78879C;
     text-align: center;
 }
 
-.lista_prodotti .card{
+.lista_prodotti .card {
     position: relative;
     top: 50%;
     background-color: white;
@@ -32,22 +43,22 @@ body{font-family: Arial}
     width: 30%;
 }
 
-.lista_prodotti .card:hover{
-    box-shadow: 0 10px 20px 0 #b2bec3;
+.lista_prodotti .card:hover {
+    box-shadow: 0 10px 20px 0 #475569;
 }
 
-.card > #nome-prodotto{
+.card #nome-prodotto {
     /*font-size: 18px;*/
     font-size: 100%;
     font-weight: bold;
 }
 
-.card img{
+.card img {
     max-width: 50%;
     border-radius: 5px;
 }
 
-.card .text{
+.card .text {
     font-size: 100%;
     text-align: left;
     margin-left: 5%;
@@ -60,7 +71,7 @@ body{font-family: Arial}
     max-width: 100%;
 }
 
-.buy-button{
+.buy-button {
     background-color: #f9ca24;
     position: relative;
     left: 70%;
@@ -72,12 +83,7 @@ body{font-family: Arial}
     font-size: 70%;
 }
 
-.buy-button:hover{
-    box-shadow: 0px 5px 5px #b2bec3;
-    color: darkred;
-}
-
-.container-prodotti{
+.container-prodotti {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,14 +91,4 @@ body{font-family: Arial}
     flex-wrap: wrap;
     margin: auto;
     width: 80%;
-}
-
-.card .price{
-    position: relative;
-    bottom: 60%;
-    left: 30%;
-    font-weight: bold;
-    color: red;
-    transform: rotate(40deg);
-    font-size: 120%;
 }
