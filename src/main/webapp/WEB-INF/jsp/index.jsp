@@ -10,8 +10,8 @@
     <%@include file="header.jsp"%>
 
 
- <!--   <div id="slider">
-        <script src="./script/slider.js"></script>
+    <div id="slider">
+        <!--<script src="./script/slider.js"></script>-->
         <script>
         var i = 0;
         var images = [];
@@ -35,7 +35,7 @@
         window.onload = changeImg;
     </script>
         <img name="slide" width="100%" height="500px" alt={slider}>
-    </div>-->
+    </div>
 
 
     <section class="lista_prodotti">
