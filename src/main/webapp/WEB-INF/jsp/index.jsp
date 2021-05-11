@@ -6,6 +6,7 @@
     <title>HomeGym</title>
     <link rel="stylesheet" href="./css/header.css" type="text/css">
     <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <link rel="stylesheet" href="./css/listaProdotti.css" type="text/css">
 </head>
 <body>
     <%@include file="header.jsp"%>
@@ -78,11 +79,11 @@
             <c:forEach items="${venduti}" var="venduto">
                 <div class="card">
                     <h1 id="nome-prodotto">${venduto.nome}</h1>
-                    <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
-                    <p class="price">${venduto.prezzo}</p>
                     <p class="descrizione">${venduto.descrizione}</p>
+                    <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
+                    <p class="price">€${venduto.prezzo}</p>
                     <button id="visualizza">Visualizza</button>
-                    <button id="aggiungi">Aggiungi al carrello</button>
+                    <button id="aggiungi">Aggiungi</button>
                 </div>
             </c:forEach>
 

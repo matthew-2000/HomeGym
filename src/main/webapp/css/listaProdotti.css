@@ -1,0 +1,107 @@
+.lista_prodotti {
+    padding: 3em;
+}
+
+.lista_prodotti #title {
+    color: #272559;
+    border-bottom: 1px solid #272559;
+    text-align: center;
+}
+
+.lista_prodotti .card {
+    position: relative;
+    top: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3em;
+    margin: 1em;
+    box-shadow: 0 5px 10px 0 #b2bec3;
+    transition: 0.3s;
+    text-align: center;
+    width: 30%;
+}
+
+.lista_prodotti .card:hover {
+    box-shadow: 0 10px 20px 0 #272559;
+}
+
+.card #nome-prodotto {
+    /*font-size: 18px;*/
+    font-size: 100%;
+    font-weight: bold;
+    font-family: Arial;
+    text-align: left;
+    margin-bottom: 2%;
+}
+
+.card img {
+    max-width: 50%;
+    border-radius: 5px;
+}
+
+.card .descrizione {
+    position: relative;
+    right: 10%;
+    color: gray;
+    font-size: 90%;
+    text-align: left;
+    margin-left: 5%;
+    margin-bottom: 0.5em;
+    height: 3em;
+    line-height: 1em;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+
+
+.container-prodotti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+}
+
+.card .price{
+    color: #272559;
+    margin-bottom: 5%;
+}
+
+.card #visualizza{
+    position: relative;
+    right: 10%;
+    background-color: white;
+    border: 1px solid #F28E13;
+    border-radius: 5px;
+    color: #F28E13;
+    font-size: 1.4em;
+}
+
+.card #aggiungi{
+    position: relative;
+    left: 10%;
+    bottom: 3%;
+    background-color: white;
+    border: 1px solid #F28E13;
+    border-radius: 5px;
+    color: #F28E13;
+    font-size: 1.4em;
+    padding: 0.5%;
+}
+
+#visualizza:hover{
+    background-color: #F28E13;
+    color: white;
+    box-shadow: 0 5px 5px 0 #b2bec3;
+}
+
+#aggiungi:hover{
+    background-color: #F28E13;
+    color: white;
+    box-shadow: 0 5px 5px 0 #b2bec3;
+}
