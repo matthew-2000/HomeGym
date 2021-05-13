@@ -17,7 +17,7 @@ public class IndexServlet extends HttpServlet {
         List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();
         List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveAll();
         List<ImmaginiProdotti> listaImmagini = ImmaginiProdottiDAO.doRetrieveAll();
-        boolean login = false;
+        boolean isLogged = false;
 
         List<Prodotto> prodottiMigliori = new ArrayList<>();
         /*List<ImmaginiProdotti> immaginiMigliori = new ArrayList<>();*/
@@ -38,7 +38,7 @@ public class IndexServlet extends HttpServlet {
         HttpSession session = request.getSession();
         synchronized (session){
             if (session.isNew()){
-                session.setAttribute("login", login);
+                session.setAttribute("isLogged", isLogged);
                 session.setAttribute("categorie", listaCategorie);
                 session.setAttribute("gruppi", listaGruppi);
                 session.setAttribute("prodotti", listaProdotti);

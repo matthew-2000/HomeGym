@@ -15,6 +15,11 @@
 <body>
     <%@include file="header.jsp"%>
 
+    <%String log = "Login";%>
+    <%if(isLogged == true){
+        log = "Logout";
+    }%>
+
 
     <section class="lista_card">
         <h1 id="title">Account</h1>
@@ -42,8 +47,8 @@
             </div>
 
             <div class="card">
-                <h1 class="nome-card">Logout</h1>
-                <p class="descrizione">Qui puoi effettuare il logout</p>
+                <h1 class="nome-card"><%=log%></h1>
+                <p class="descrizione">Qui puoi effettuare il <%=log%></p>
                 <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
                 <button class="visualizza">Visualizza</button>
             </div>
