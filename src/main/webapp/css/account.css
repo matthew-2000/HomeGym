@@ -1,0 +1,83 @@
+
+.container-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+}
+
+.lista_card {
+    padding: 3em;
+}
+
+.lista_card #title {
+    color: #272559;
+    border-bottom: 1px solid #272559;
+    text-align: center;
+}
+
+.lista_card .card {
+    position: relative;
+    top: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3em;
+    margin: 1em;
+    box-shadow: 0 5px 10px 0 #b2bec3;
+    transition: 0.3s;
+    text-align: center;
+    width: 30%;
+    min-width: 300px;
+}
+
+.lista_card .card:hover {
+    box-shadow: 0 10px 20px 0 #272559;
+}
+
+.card .nome-card {
+    font-size: 20px;
+    color: #272559;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 2%;
+}
+
+.card img {
+    margin: auto;
+    width: 50%;
+}
+
+.card .descrizione {
+    color: gray;
+    font-size: 90%;
+    text-align: left;
+    margin-bottom: 0.5em;
+    height: 3em;
+    line-height: 1em;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.card .visualizza{
+    position: relative;
+    left: 10%;
+    bottom: 3%;
+    background-color: #F28E13;
+    border: 1px solid #F28E13;
+    border-radius: 15px;
+    color: white;
+    font-size: 1em;
+    padding: 10px 15px;
+}
+
+
+
+.visualizza:hover{
+    background-color: #272559;
+    border: 1px solid #272559;
+}

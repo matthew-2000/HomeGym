@@ -17,26 +17,28 @@ public class IndexServlet extends HttpServlet {
         List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();
         List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveAll();
         List<ImmaginiProdotti> listaImmagini = ImmaginiProdottiDAO.doRetrieveAll();
+        boolean login = false;
 
         List<Prodotto> prodottiMigliori = new ArrayList<>();
-        List<ImmaginiProdotti> immaginiMigliori = new ArrayList<>();
+        /*List<ImmaginiProdotti> immaginiMigliori = new ArrayList<>();*/
         for (Prodotto li : listaProdotti){
             if (li.getVoto() > 4.75){
                 prodottiMigliori.add(li);
-                for(ImmaginiProdotti lis : listaImmagini){
+                /*for(ImmaginiProdotti lis : listaImmagini){
                     if(lis.getIdProdotto() == li.getId())
                         immaginiMigliori.add(lis);
-                }
+                }*/
             }
         }
 
 
 
         request.setAttribute("venduti", prodottiMigliori);
-        request.setAttribute("immaginiMigliori", immaginiMigliori);
+        /*request.setAttribute("immaginiMigliori", immaginiMigliori);*/
         HttpSession session = request.getSession();
         synchronized (session){
             if (session.isNew()){
+                session.setAttribute("login", login);
                 session.setAttribute("categorie", listaCategorie);
                 session.setAttribute("gruppi", listaGruppi);
                 session.setAttribute("prodotti", listaProdotti);

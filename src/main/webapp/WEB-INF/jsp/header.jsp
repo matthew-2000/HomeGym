@@ -12,9 +12,10 @@
 </head>
 <body>
 
+
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="nav-logo">
+        <a href="http://localhost:8080/HomeGym_war_exploded/IndexServlet" class="nav-logo">
             <img src="./images/logo.png">
         </a>
         <div id="search-bar">
@@ -29,7 +30,7 @@
                 <a href="#" class="nav-link">Categorie</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Account</a>
+                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Carrello</a>
