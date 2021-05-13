@@ -1,3 +1,14 @@
+
+.container-prodotti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+}
+
 .lista_prodotti {
     padding: 3em;
 }
@@ -19,6 +30,7 @@
     transition: 0.3s;
     text-align: center;
     width: 30%;
+    min-width: 300px;
 }
 
 .lista_prodotti .card:hover {
@@ -26,26 +38,22 @@
 }
 
 .card #nome-prodotto {
-    /*font-size: 18px;*/
-    font-size: 100%;
+    font-size: 20px;
+    color: #272559;
     font-weight: bold;
-    font-family: Arial;
     text-align: left;
     margin-bottom: 2%;
 }
 
 .card img {
-    max-width: 50%;
-    border-radius: 5px;
+    margin: auto;
+    width: 50%;
 }
 
 .card .descrizione {
-    position: relative;
-    right: 10%;
     color: gray;
     font-size: 90%;
     text-align: left;
-    margin-left: 5%;
     margin-bottom: 0.5em;
     height: 3em;
     line-height: 1em;
@@ -55,53 +63,43 @@
     max-width: 100%;
 }
 
-
-
-.container-prodotti {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: auto;
-    width: 80%;
-}
-
 .card .price{
+    font-size: 20px;
+    text-align: center;
     color: #272559;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .card #visualizza{
     position: relative;
     right: 10%;
     background-color: white;
-    border: 1px solid #F28E13;
-    border-radius: 5px;
+    border: 2px solid #F28E13;
+    border-radius: 15px;
     color: #F28E13;
-    font-size: 1.4em;
+    font-size: 1em;
+    padding: 10px 15px;
 }
 
 .card #aggiungi{
     position: relative;
     left: 10%;
     bottom: 3%;
-    background-color: white;
+    background-color: #F28E13;
     border: 1px solid #F28E13;
-    border-radius: 5px;
-    color: #F28E13;
-    font-size: 1.4em;
-    padding: 0.5%;
+    border-radius: 15px;
+    color: white;
+    font-size: 1em;
+    padding: 10px 15px;
 }
 
 #visualizza:hover{
-    background-color: #F28E13;
-    color: white;
-    box-shadow: 0 5px 5px 0 #b2bec3;
+    color: #272559;
+    border: 2px solid #272559;
 }
 
 #aggiungi:hover{
-    background-color: #F28E13;
-    color: white;
-    box-shadow: 0 5px 5px 0 #b2bec3;
+    background-color: #272559;
+    border: 1px solid #272559;
 }
