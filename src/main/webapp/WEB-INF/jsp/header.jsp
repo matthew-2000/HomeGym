@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/header.css" type="text/css">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="#" class="nav-link">Categorie</a>
+                <a href="http://localhost:8080/HomeGym_war_exploded/CategorieServlet" class="nav-link">Categorie</a>
             </li>
             <li class="nav-item">
                 <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
