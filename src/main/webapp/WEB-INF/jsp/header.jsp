@@ -12,17 +12,6 @@
 </head>
 <body>
 
-<%
-    boolean isLogged = (boolean) session.getAttribute("isLogged");
-    String name = "Login";
-
-    if (isLogged) {
-        name = "${}";
-    }
-
-    request.setAttribute("name", name);
-%>
-
 <header class="header">
     <nav class="navbar">
         <a href="http://localhost:8080/HomeGym_war_exploded/IndexServlet" class="nav-logo">

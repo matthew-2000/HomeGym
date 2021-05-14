@@ -30,7 +30,7 @@
     transition: 0.3s;
     text-align: center;
     width: 30%;
-    min-width: 300px;
+    min-width: 400px;
 }
 
 .lista_prodotti .card:hover {
@@ -54,7 +54,7 @@
     color: gray;
     font-size: 90%;
     text-align: left;
-    margin-bottom: 0.5em;
+    margin-bottom: 10%;
     height: 3em;
     line-height: 1em;
     /*white-space: nowrap;*/

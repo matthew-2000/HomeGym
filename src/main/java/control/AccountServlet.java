@@ -9,15 +9,8 @@ import java.io.IOException;
 public class AccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
 
-        String address;
-
-        if (name.equals("Login")) {
-            address = "/WEB-INF/jsp/login.jsp";
-        } else {
-            address = "/WEB-INF/jsp/account.jsp";
-        }
+        String address = "/WEB-INF/jsp/account.jsp";
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
