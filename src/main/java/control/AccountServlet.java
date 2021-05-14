@@ -11,13 +11,11 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
 
-        String address = "";
+        String address;
 
-        if(name.equals("Login")){
-            address = "";
-        }
-
-        else if(!name.equals("Login")){
+        if (name.equals("Login")) {
+            address = "/WEB-INF/jsp/login.jsp";
+        } else {
             address = "/WEB-INF/jsp/account.jsp";
         }
 

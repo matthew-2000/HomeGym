@@ -12,13 +12,16 @@
 </head>
 <body>
 
-<%boolean isLogged = (boolean) session.getAttribute("isLogged");%>
-<%String name = "Login";%>
-<%if(isLogged  == true){
-    name = "${}";
-}%>
+<%
+    boolean isLogged = (boolean) session.getAttribute("isLogged");
+    String name = "Login";
 
-<%request.setAttribute("name", name);%>
+    if (isLogged) {
+        name = "${}";
+    }
+
+    request.setAttribute("name", name);
+%>
 
 <header class="header">
     <nav class="navbar">
@@ -37,7 +40,7 @@
                 <a href="#" class="nav-link">Categorie</a>
             </li>
             <li class="nav-item">
-                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link"><%=name%></a>
+                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Carrello</a>

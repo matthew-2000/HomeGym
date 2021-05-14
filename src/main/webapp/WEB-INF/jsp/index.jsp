@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./css/header.css" type="text/css">
     <link rel="stylesheet" href="./css/index.css" type="text/css">
     <link rel="stylesheet" href="./css/listaProdotti.css" type="text/css">
+    <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
+
     <%@include file="header.jsp"%>
 
     <br>
@@ -90,8 +92,7 @@
         </div>
     </section>
 
-
-
+    <%@include file="footer.jsp"%>
 
 </body>
 </html>
