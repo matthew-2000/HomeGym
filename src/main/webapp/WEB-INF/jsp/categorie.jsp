@@ -1,4 +1,6 @@
-<%--
+<%@ page import="model.Gruppo" %>
+<%@ page import="model.GruppoDAO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: jacop
   Date: 14/05/2021
@@ -16,20 +18,36 @@
 
     <%@include file="header.jsp"%>
 
+    <%int count = 1;%>
+    <%List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();%>
+
     <div class="container-categorie">
         <div class="box">
-            <h2>List Categories</h2>
-            <ul>
-                <li><div class="div-categoria">
-                    <span>1</span>Item One
-                </div></li>
-                <li><span>2</span>Item Two</li>
-                <li><span>3</span>Item Five</li>
-                <li><span>4</span>Item Four</li>
-                <li><span>5</span>Item Five</li>
-                <li><span>6</span>Item Six</li>
-            </ul>
+            <h2>Categorie HomeGym</h2>
+
+                <c:forEach items="${categorie}" var="categoria">
+                    <div class="categoria">
+                            <form>
+                                <input type="hidden" name="idCategoria" value="${categoria.id}">
+                                <h3><span><%=count%></span>${categoria.nome}</h3>
+                                <p>${categoria.descrizione}</p>
+                                <ul>
+                                    <form>
+                                        <input type="hidden" name="gruppoId" value="${gruppo.id}">
+                                        <li><a href="#">Gruppo</a></li>
+                                    </form>
+
+                                </ul>
+                            </form>
+                            <%count++;%>
+                    </div>
+                </c:forEach>
+
+
+
+
         </div>
+
     </div>
 
 

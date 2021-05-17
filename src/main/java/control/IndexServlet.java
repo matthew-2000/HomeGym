@@ -39,8 +39,8 @@ public class IndexServlet extends HttpServlet {
         synchronized (session){
             if (session.isNew()){
                 session.setAttribute("isLogged", isLogged);
-                session.setAttribute("categorie", listaCategorie);
-                session.setAttribute("gruppi", listaGruppi);
+                /*session.setAttribute("categorie", listaCategorie);*/
+                /*session.setAttribute("gruppi", listaGruppi);*/
                 session.setAttribute("prodotti", listaProdotti);
                 session.setAttribute("immagini", listaImmagini);
             }

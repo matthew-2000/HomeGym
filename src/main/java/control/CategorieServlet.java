@@ -2,6 +2,8 @@ package control;
 
 import model.Categoria;
 import model.CategoriaDAO;
+import model.Gruppo;
+import model.GruppoDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,17 +16,13 @@ import java.util.List;
 public class CategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Categoria> listaCategorie = new ArrayList<>();
+        listaCategorie = CategoriaDAO.doRetrieveAll();
+        List<Gruppo> listaGruppi = new ArrayList<>();
+        listaGruppi = GruppoDAO.doRetrieveAll();
 
-        HttpSession session = request.getSession(true);
-        synchronized (session){
-            List<Categoria> listaCategorie = (List<Categoria>) session.getAttribute("categorie");
-            if(listaCategorie == null){
-                listaCategorie = new ArrayList<>();
-                listaCategorie = CategoriaDAO.doRetrieveAll();
-                session.setAttribute("categorie", listaCategorie);
-            }
-        }
-
+        request.setAttribute("categorie", listaCategorie);
+        request.setAttribute("gruppi", listaGruppi);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/categorie.jsp");
         dispatcher.forward(request, response);
