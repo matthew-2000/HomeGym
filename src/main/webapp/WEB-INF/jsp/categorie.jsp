@@ -21,30 +21,31 @@
     <%int count = 1;%>
     <%List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();%>
 
+    <h1 id="title">Lista categorie</h1>
+
     <div class="container-categorie">
+
         <div class="box">
-            <h2>Categorie HomeGym</h2>
 
                 <c:forEach items="${categorie}" var="categoria">
                     <div class="categoria">
                             <form>
-                                <input type="hidden" name="idCategoria" value="${categoria.id}">
                                 <h3><span><%=count%></span>${categoria.nome}</h3>
-                                <p>${categoria.descrizione}</p>
+                                <br><p>${categoria.descrizione}</p><br>
+
                                 <ul>
-                                    <form>
-                                        <input type="hidden" name="gruppoId" value="${gruppo.id}">
-                                        <li><a href="#">Gruppo</a></li>
-                                    </form>
+                                    <c:forEach items="${categoria.listaGruppi}" var="gruppo">
+                                        <form>
+                                            <input type="hidden" name="gruppoId" value="${gruppo.id}">
+                                            <li><a href="#">${gruppo.nome}</a></li>
+                                        </form>
+                                    </c:forEach>
 
                                 </ul>
                             </form>
                             <%count++;%>
                     </div>
                 </c:forEach>
-
-
-
 
         </div>
 

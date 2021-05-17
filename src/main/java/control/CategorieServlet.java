@@ -16,13 +16,12 @@ import java.util.List;
 public class CategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Categoria> listaCategorie = new ArrayList<>();
-        listaCategorie = CategoriaDAO.doRetrieveAll();
-        List<Gruppo> listaGruppi = new ArrayList<>();
-        listaGruppi = GruppoDAO.doRetrieveAll();
+        List<Categoria> listaCategorie = CategoriaDAO.doRetrieveAll();
+        for (Categoria c : listaCategorie) {
+            c.setListaGruppi((ArrayList<Gruppo>) GruppoDAO.doRetrieveByIdCategoria(c.getId()));
+        }
 
         request.setAttribute("categorie", listaCategorie);
-        request.setAttribute("gruppi", listaGruppi);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/categorie.jsp");
         dispatcher.forward(request, response);
