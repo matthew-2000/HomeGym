@@ -11,7 +11,7 @@ public class Utente {
     private int cap;
     private String paese;
     private int numero;
-    private boolean admin;
+    private boolean isAdmin;
 
     public int getId() {
         return id;
@@ -86,10 +86,10 @@ public class Utente {
     }
 
     public boolean isAdmin() {
-        return admin;
+        return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

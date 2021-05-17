@@ -29,9 +29,23 @@
             <li class="nav-item">
                 <a href="http://localhost:8080/HomeGym_war_exploded/CategorieServlet" class="nav-link">Categorie</a>
             </li>
-            <li class="nav-item">
-                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
-            </li>
+            <c:choose>
+                <c:when test="${utente == null}">
+                    <li class="nav-item">
+                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Login</a>
+                    </li>
+                </c:when>
+                <c:when test="${utente != null}">
+                    <li class="nav-item">
+                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
+                    </li>
+                </c:when>
+                <c:when test="${utente.isAdmin}">
+                    <li class="nav-item">
+                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Admin</a>
+                    </li>
+                </c:when>
+            </c:choose>
             <li class="nav-item">
                 <a href="#" class="nav-link">Carrello</a>
             </li>
