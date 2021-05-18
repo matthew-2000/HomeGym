@@ -32,7 +32,7 @@
             <c:choose>
                 <c:when test="${utente == null}">
                     <li class="nav-item">
-                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Login</a>
+                        <a href="http://localhost:8080/HomeGym_war_exploded/LogServlet" class="nav-link">Login</a>
                     </li>
                 </c:when>
                 <c:when test="${utente != null}">
