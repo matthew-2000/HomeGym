@@ -18,7 +18,7 @@ public class RegistrazioneServlet extends HttpServlet {
         String cognome = request.getParameter("cognome");
         String via = request.getParameter("via");
         int cap = Integer.parseInt(request.getParameter("cap"));
-        String paese = request.getParameter("paese");
+        String paese = request.getParameter("pause");
         int numero = Integer.parseInt(request.getParameter("numero"));
 
         Utente utente = new Utente();

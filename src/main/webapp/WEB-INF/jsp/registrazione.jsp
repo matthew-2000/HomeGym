@@ -30,9 +30,10 @@
             var email = document.getElementById("emailId");
             var password = document.getElementById("passwordId");
             var repeat = document.getElementById("repeatId");
+            var errorMessage = document.getElementById("errorMessage")
 
             if(email.value == "" || password.value == "" || repeat.value == ""){
-                alert("Inserisci tutti i dati");
+                errorMessage.innerHTML = "Inserisci tutti gli elementi"
 
                 if(email.value == ""){
                     email.focus();
