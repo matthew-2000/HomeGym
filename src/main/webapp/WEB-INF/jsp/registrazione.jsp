@@ -61,7 +61,7 @@
     <div class="container-registrazione">
         <div class="box">
             <h1 id="title">Registrazione</h1>
-            <form>
+            <form action="RegistrazioneServlet" method="post">
                 <div id="errorMessage"></div>
                 <div id="email-pass">
                     <input type="email" id="emailId" name="email" placeholder="E-mail"><br>
