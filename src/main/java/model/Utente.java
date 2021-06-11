@@ -8,9 +8,9 @@ public class Utente {
     private String nome;
     private String cognome;
     private String via;
-    private int cap;
+    private String cap;
     private String paese;
-    private int numero;
+    private String numero;
     private boolean isAdmin;
 
     public int getId() {
@@ -61,11 +61,11 @@ public class Utente {
         this.via = via;
     }
 
-    public int getCap() {
+    public String getCap() {
         return cap;
     }
 
-    public void setCap(int cap) {
+    public void setCap(String cap) {
         this.cap = cap;
     }
 
@@ -77,11 +77,11 @@ public class Utente {
         this.paese = paese;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

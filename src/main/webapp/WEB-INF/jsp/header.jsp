@@ -36,14 +36,18 @@
                     </li>
                 </c:when>
                 <c:when test="${utente != null}">
-                    <li class="nav-item">
-                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
-                    </li>
-                </c:when>
-                <c:when test="${utente.isAdmin}">
-                    <li class="nav-item">
-                        <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Admin</a>
-                    </li>
+                    <c:choose>
+                        <c:when test="${utente.isAdmin()}">
+                            <li class="nav-item">
+                                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Admin</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="nav-item">
+                                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
                 </c:when>
             </c:choose>
             <li class="nav-item">

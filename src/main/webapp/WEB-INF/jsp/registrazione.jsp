@@ -33,7 +33,7 @@
             var errorMessage = document.getElementById("errorMessage")
 
             if(email.value == "" || password.value == "" || repeat.value == ""){
-                errorMessage.innerHTML = "Inserisci tutti gli elementi"
+                errorMessage.innerHTML = "Inserisci tutti gli elementi";
 
                 if(email.value == ""){
                     email.focus();

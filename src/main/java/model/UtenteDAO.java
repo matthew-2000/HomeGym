@@ -19,9 +19,9 @@ public class UtenteDAO {
                 u.setNome(rs.getString(4));
                 u.setCognome(rs.getString(5));
                 u.setVia(rs.getString(6));
-                u.setCap(rs.getInt(7));
+                u.setCap(rs.getString(7));
                 u.setPaese(rs.getString(8));
-                u.setNumero(rs.getInt(9));
+                u.setNumero(rs.getString(9));
                 u.setAdmin(rs.getBoolean(10));
                 return u;
             }
@@ -44,9 +44,9 @@ public class UtenteDAO {
                 u.setNome(rs.getString(4));
                 u.setCognome(rs.getString(5));
                 u.setVia(rs.getString(6));
-                u.setCap(rs.getInt(7));
+                u.setCap(rs.getString(7));
                 u.setPaese(rs.getString(8));
-                u.setNumero(rs.getInt(9));
+                u.setNumero(rs.getString(9));
                 u.setAdmin(rs.getBoolean(10));
                 lista.add(u);
             }
@@ -62,18 +62,22 @@ public class UtenteDAO {
     public static Utente  doRetrieveByEmailPassword(String email, String password){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM " +
-                    "utente WHERE email=? AND passwordHash=SHA1(?)");
+                    "utente WHERE email=? AND passwordHash=?");
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 Utente u = new Utente();
                 u.setId(rs.getInt(1));
-                u.setNome(rs.getString(2));
-                u.setPasswordHash(rs.getString(3));
-                u.setNome(rs.getString(4));
-                u.setEmail(rs.getString(5));
-                u.setAdmin(rs.getBoolean(6));
+                u.setEmail(rs.getString(2));
+                u.setNome(rs.getString(3));
+                u.setCognome(rs.getString(4));
+                u.setPasswordHash(rs.getString(5));
+                u.setVia(rs.getString(6));
+                u.setCap(rs.getString(7));
+                u.setPaese(rs.getString(8));
+                u.setNumero(rs.getString(9));
+                u.setAdmin(rs.getBoolean(10));
                 return u;
             }
             return null;
@@ -92,12 +96,13 @@ public class UtenteDAO {
             ps.setString(3, utente.getNome());
             ps.setString(4, utente.getCognome());
             ps.setString(5, utente.getVia());
-            ps.setInt(6, utente.getCap());
+            ps.setString(6, utente.getCap());
             ps.setString(7, utente.getPaese());
-            ps.setInt(8, utente.getNumero());
+            ps.setString(8, utente.getNumero());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
+
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
             int id = rs.getInt(1);
