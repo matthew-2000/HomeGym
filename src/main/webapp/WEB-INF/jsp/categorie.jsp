@@ -30,14 +30,15 @@
                 <c:forEach items="${categorie}" var="categoria">
                     <div class="categoria">
                             <form>
+                                <input type="hidden" name="categoriaId" value="${categoria.id}">
                                 <h3><span><%=count%></span>${categoria.nome}</h3>
                                 <br><p>${categoria.descrizione}</p><br>
 
                                 <ul>
                                     <c:forEach items="${categoria.listaGruppi}" var="gruppo">
-                                        <form>
+                                        <form action="GruppoServlet" method="post">
                                             <input type="hidden" name="gruppoId" value="${gruppo.id}">
-                                            <li><a href="#">${gruppo.nome}</a></li>
+                                            <li><a href="#" onclick="form.action='GruppoServlet'">${gruppo.nome}</a></li>
                                         </form>
                                     </c:forEach>
 
