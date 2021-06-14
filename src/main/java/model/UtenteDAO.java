@@ -59,7 +59,7 @@ public class UtenteDAO {
         }
     }
 
-    public static Utente  doRetrieveByEmailPassword(String email, String password){
+    public static Utente doRetrieveByEmailPassword(String email, String password){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM " +
                     "utente WHERE email=? AND passwordHash=?");

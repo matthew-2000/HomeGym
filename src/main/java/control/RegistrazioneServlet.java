@@ -48,7 +48,6 @@ public class RegistrazioneServlet extends HttpServlet {
                 session.setAttribute("isLogged", true);
             }
         }
-        System.out.println("MATTEO E GAY");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");
         dispatcher.forward(request, response);
     }

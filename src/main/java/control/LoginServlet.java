@@ -16,9 +16,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         Utente utente = UtenteDAO.doRetrieveByEmailPassword(email, password);
-        System.out.println("ERRORE 1");
         if(utente != null){
-            System.out.println("ERRORE " + utente.toString());
 
             HttpSession session = request.getSession();
             session.setAttribute("utente", utente);
@@ -27,11 +25,8 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("isLogged", true);
             }
         }//inserire errore
-        else{
-            System.out.println("ERRORE UTENTE" );
-        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");
         dispatcher.forward(request, response);
     }
 
