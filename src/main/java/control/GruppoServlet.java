@@ -23,15 +23,14 @@ public class GruppoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idGruppo = Integer.parseInt(request.getParameter("gruppoId"));
 
-        List<Prodotto> listaProdotti = new ArrayList<>();
-        listaProdotti = ProdottoDAO.doRetrieveByIdGruppo(idGruppo);
+        List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveByIdGruppo(idGruppo);
 
         Gruppo g = GruppoDAO.doRetrieveById(idGruppo);
 
         request.setAttribute("prodotti", listaProdotti);
         request.setAttribute("gruppo", g);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotti");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotti.jsp");
         dispatcher.forward(request, response);
     }
 }
