@@ -24,8 +24,8 @@ body {
 
 .lista_card #title {
     color: #272559;
-    border-bottom: 1px solid #272559;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .lista_card .card {
@@ -44,49 +44,32 @@ body {
 
 .lista_card .card:hover {
     box-shadow: 0 10px 20px 0 #272559;
+    cursor: pointer;
 }
 
 .card .nome-card {
     font-size: 20px;
     color: #272559;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     margin-bottom: 2%;
 }
 
 .card img {
     margin: auto;
     width: 50%;
+    max-width: 100px;
 }
 
 .card .descrizione {
     color: gray;
     font-size: 90%;
-    text-align: left;
+    text-align: center;
     margin-bottom: 0.5em;
     height: 3em;
     line-height: 1em;
-    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
 }
 
-.card .visualizza{
-    position: relative;
-    left: 10%;
-    bottom: 3%;
-    background-color: #F28E13;
-    border: 1px solid #F28E13;
-    border-radius: 15px;
-    color: white;
-    font-size: 1em;
-    padding: 10px 15px;
-}
-
-
-
-.visualizza:hover{
-    background-color: #272559;
-    border: 1px solid #272559;
-}

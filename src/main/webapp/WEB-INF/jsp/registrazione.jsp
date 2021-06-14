@@ -10,52 +10,53 @@
 <head>
     <title>Home Gym - Registrazione</title>
     <link rel="stylesheet" href="./css/registrazione.css" type="text/css">
-   <!-- <script type="text/javascript" src="formRegistration.js"></script> -->
 
 </head>
 <body>
     <%@include file="header.jsp"%>>
 
     <script>
-        function mostra(){
+
+        function mostra() {
             document.getElementById("altro").style.display="block";
         }
 
-        function nascondi(){
+        function nascondi() {
             document.getElementById("email-pass").style.display="none";
         }
 
-
-        function validate(){
+        function validate() {
             var email = document.getElementById("emailId");
             var password = document.getElementById("passwordId");
             var repeat = document.getElementById("repeatId");
             var errorMessage = document.getElementById("errorMessage")
 
-            if(email.value == "" || password.value == "" || repeat.value == ""){
+            if (email.value == "" || password.value == "" || repeat.value == "") {
                 errorMessage.innerHTML = "Inserisci tutti gli elementi";
 
-                if(email.value == ""){
+                if (email.value == "") {
                     email.focus();
                     email.style.borderColor = "red";
                 }
 
-                if(password.value == ""){
+                if (password.value == "") {
                     password.focus();
                     password.style.borderColor = "red";
                 }
 
-                if(repeat.value == ""){
+                if (repeat.value == "") {
                     repeat.focus();
                     repeat.style.borderColor = "red";
                 }
             }
-            if(password.value == repeat.value){
+
+            if (password.value == repeat.value) {
                 mostra();
                 nascondi();
             }
 
         }
+
     </script>
 
 
