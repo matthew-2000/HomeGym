@@ -11,13 +11,24 @@
     <title>HomeGym - Account</title>
     <link rel="stylesheet" href="./css/header.css" type="text/css">
     <link rel="stylesheet" href="./css/account.css" type="text/css">
+    <link rel="stylesheet" href="./css/myaccount.css" type="text/css">
+    <script src="./scripts/jquery.js"></script>
+    <script src="./scripts/myAccount.js"></script>
 </head>
 <body>
+
+    <script>
+        function showButton(){
+            document.getElementById("bottoni2").style.display="block";
+        }
+    </script>
+
     <%@include file="header.jsp"%>
 
     <section class="lista_card">
         <h1 id="title">Account</h1>
         <div class="container-card">
+
 
             <div class="card" id="accountCard">
                 <h1 class="nome-card">Il mio Account</h1>
@@ -42,9 +53,43 @@
                 <p class="descrizione">Qui puoi effettuare il logout</p>
                 <img src="./images/icons/logout.png">
             </div>
-
         </div>
     </section>
+    <div id="container-myaccount">
+        <div id="box-myaccount">
+            <img src="./images/icons/exit.png" id="exit">
+            <h1 id="title-myaccount">Il Mio Account</h1>
+            <form id="MyAccountForm" action="/MyAccountServlet" method="post">
+                <input type="hidden" name="id" value="${utente.id}">
+                <input type="hidden" name="email" value="${utente.email}">
+                <input type="hidden" name="password" value="${utente.passwordHash}">
+
+                <label for="nomeId" id="nomelbl">Nome </label>
+                <input type="text" name="nome" id="nomeId" value="${utente.nome}"><br>
+
+                <label for="cognomeId" id="cognomelbl">Cognome </label>
+                <input type="text" name="cognome" id="cognomeId" value="${utente.cognome}"><br>
+
+                <label for="indirizzoId" id="indirizzolbl">Indirizzo </label>
+                <input type="text" name="indirizzo" id="indirizzoId" value="${utente.via}"><br>
+
+                <label for="capId" id="caplbl">CAP </label>
+                <input type="text" name="cap" id="capId" value="${utente.cap}"><br>
+
+                <label for="paeseId" id="paeselbl">Paese </label>
+                <input type="text" name="paese" id="paeseId" value="${utente.paese}"><br>
+
+                <label for="telefonoId" id="telefonolbl">Numero di telefono </label>
+                <input type="text" name="telefono" id="telefonoId" value="${utente.numero}"><br>
+
+                <button type="button" id="modificaButton" onclick="showButton()">Modifica Account</button>
+                <div id="bottoni2">
+                    <button type="button" id="annulla">Annulla</button>
+                    <input type="submit" value="Salva Modifiche" id="salvaModifiche">
+                </div>
+            </form>
+        </div>
+    </div>
 
     <%@include file="footer.jsp"%>
 

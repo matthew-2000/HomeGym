@@ -1,0 +1,123 @@
+#container-myaccount{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 9%;
+    width: 80%;
+}
+
+#box-myaccount{
+    width: 40%;
+    min-width: 350px;
+    padding: 2% 5% 2%;
+    margin: 100px auto 100px;
+    background: white;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px 0 #272559;
+    transition: 0.3s;
+}
+
+#title-myaccount{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #272559;
+    text-align: center;
+}
+
+#exit{
+    position: relative;
+    left: 50%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#nomelbl, #cognomelbl, #indirizzolbl, #caplbl, #paeselbl, #telefonolbl{
+    margin-bottom: 0px;
+}
+
+#nomeId, #cognomeId, #indirizzoId, #capid, #paeseId, #telefonoId{
+    font-size: 1.7rem;
+    padding: 8px;
+    width: 90%;
+    background-color: white;
+    text-align: left;
+    margin-top: 10%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #272559;
+    color: #272559;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+#box-myaccount #modificaButton{
+    width: 50%;
+    font-size: 2rem;
+    padding: 6px;
+    background-color: #F28E13;
+    border-radius: 10px;
+    border: 2px solid #F28E13;
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
+
+#box-myaccount #annulla{
+    width: 50%;
+    font-size: 2rem;
+    padding: 6px;
+    background-color: #F28E13;
+    border-radius: 10px;
+    border: 2px solid #F28E13;
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
+
+#box-myaccount input[type = "submit"]{
+    width: 50%;
+    font-size: 2rem;
+    padding: 6px;
+    background-color: #F28E13;
+    border-radius: 10px;
+    border: 2px solid #F28E13;
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
+
+#box-myaccount input[type = "submit"]:hover{
+    cursor: pointer;
+    background-color: #272559;
+    border: 2px solid #272559;
+    transition: 0.5s;
+}
+
+#box-myaccount #bottoni2{
+    display: none;
+    position: absolute;
+    top: 75%;
+    left: 29%;
+    width: 45%;
+
+}
+
+#bottoni2 #annulla{
+    width: 35%;
+    float: left;
+    margin: 20px 20px 20px 40px;
+}
+
+#bottoni2 #salvaModifiche{
+    width: 35%;
+    float: left;
+    margin: 20px 0px 0px 20px;
+
+}
+
+
