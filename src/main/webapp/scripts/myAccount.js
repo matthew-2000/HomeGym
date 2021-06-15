@@ -21,4 +21,9 @@ $(document).ready(function (){
         $(".lista_card").css("filter", "blur(0px)");
         $("#bottoni2").hide();
     });
+
+    $("#checkImg").click(function () {
+        $("#check").hide("slow");
+        $(".lista_card").css("filter", "blur(0px)");
+    });
 });

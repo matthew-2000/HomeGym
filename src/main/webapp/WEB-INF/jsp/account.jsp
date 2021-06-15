@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.Utente" %><%--
   Created by IntelliJ IDEA.
   User: jacop
   Date: 13/05/2021
@@ -14,16 +14,25 @@
     <link rel="stylesheet" href="./css/myaccount.css" type="text/css">
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/myAccount.js"></script>
+    <script src="./scripts/check.js"></script>
 </head>
 <body>
 
+    <%@include file="header.jsp"%>
     <script>
-        function showButton(){
-            document.getElementById("bottoni2").style.display="block";
+        var isChange = <%=request.getAttribute("isChange")%>;
+        if (isChange) {
+            $(document).ready(function () {
+                $(".lista_card").css("filter", "blur(5px)");
+                $("#check").show();
+            });
         }
     </script>
 
-    <%@include file="header.jsp"%>
+    <div id="check">
+        <img src="./images/icons/spuntaBlu.png" id="checkImg">
+        <p id="checkTesto">Modifica avvenuta con successo</p>
+    </div>
 
     <section class="lista_card">
         <h1 id="title">Account</h1>
@@ -59,7 +68,7 @@
         <div id="box-myaccount">
             <img src="./images/icons/exit.png" id="exit">
             <h1 id="title-myaccount">Il Mio Account</h1>
-            <form id="MyAccountForm" action="/MyAccountServlet" method="post">
+            <form id="MyAccountForm" action="MyAccountServlet" method="post">
                 <input type="hidden" name="id" value="${utente.id}">
                 <input type="hidden" name="email" value="${utente.email}">
                 <input type="hidden" name="password" value="${utente.passwordHash}">
@@ -82,7 +91,7 @@
                 <label for="telefonoId" id="telefonolbl">Numero di telefono </label>
                 <input type="text" name="telefono" id="telefonoId" value="${utente.numero}"><br>
 
-                <button type="button" id="modificaButton" onclick="showButton()">Modifica Account</button>
+                <button type="button" id="modificaButton">Modifica Account</button>
                 <div id="bottoni2">
                     <button type="button" id="annulla">Annulla</button>
                     <input type="submit" value="Salva Modifiche" id="salvaModifiche">

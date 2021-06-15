@@ -98,6 +98,20 @@
     transition: 0.5s;
 }
 
+#modificaButton:hover{
+    cursor: pointer;
+    background-color: #272559;
+    border: 2px solid #272559;
+    transition: 0.5s;
+}
+
+#annulla:hover{
+    cursor: pointer;
+    background-color: #272559;
+    border: 2px solid #272559;
+    transition: 0.5s;
+}
+
 #box-myaccount #bottoni2{
     display: none;
     position: absolute;
@@ -118,6 +132,27 @@
     float: left;
     margin: 20px 0px 0px 20px;
 
+}
+
+#check{
+    display: none;
+    width: 25%;
+    position: relative;
+    left: 37%;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px 0 #272559;
+    border-radius: 10px;
+}
+
+#check > img{
+    width: 15%;
+    margin: 20px;
+}
+
+#check #checkTesto{
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
 }
 
 
