@@ -17,7 +17,6 @@ public class MyAccountServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        boolean isChange = true;
         int id = Integer.parseInt(request.getParameter("id"));
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -43,11 +42,11 @@ public class MyAccountServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("utente");
         if (!utente1.equals(u)) {
+            System.out.println("ERRORE 1");
             UtenteDAO.doUpdate(utente1, id);
             session.setAttribute("utente", utente1);
+            request.setAttribute("isChange", true);
         }
-
-        request.setAttribute("isChange", isChange);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/account.jsp");
         dispatcher.forward(request, response);

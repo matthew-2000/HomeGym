@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="./css/myaccount.css" type="text/css">
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/myAccount.js"></script>
-    <script src="./scripts/check.js"></script>
 </head>
 <body>
 
     <%@include file="header.jsp"%>
     <script>
-        var isChange = <%=request.getAttribute("isChange")%>;
+        var isChange = '${isChange}';
         if (isChange) {
             $(document).ready(function () {
                 $(".lista_card").css("filter", "blur(5px)");

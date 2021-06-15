@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Utente {
 
     private int id;
@@ -92,4 +94,24 @@ public class Utente {
     public void setAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Utente utente = (Utente) o;
+        return id == utente.id && isAdmin == utente.isAdmin &&
+            Objects.equals(email, utente.email) &&
+            Objects.equals(passwordHash, utente.passwordHash) &&
+            Objects.equals(nome, utente.nome) &&
+            Objects.equals(cognome, utente.cognome) &&
+            Objects.equals(via, utente.via) && Objects.equals(cap, utente.cap) &&
+            Objects.equals(paese, utente.paese) &&
+            Objects.equals(numero, utente.numero);
+    }
+
 }
