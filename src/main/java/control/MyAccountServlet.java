@@ -42,7 +42,6 @@ public class MyAccountServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("utente");
         if (!utente1.equals(u)) {
-            System.out.println("ERRORE 1");
             UtenteDAO.doUpdate(utente1, id);
             session.setAttribute("utente", utente1);
             request.setAttribute("isChange", true);

@@ -1,7 +1,7 @@
 #container-myaccount{
     display: none;
     position: absolute;
-    top: 0%;
+    top: 0;
     left: 9%;
     width: 80%;
 }
@@ -36,7 +36,8 @@
     cursor: pointer;
 }
 
-#nomelbl, #cognomelbl, #indirizzolbl, #caplbl, #paeselbl, #telefonolbl{
+#MyAccountForm label{
+    color: #272559;
     margin-bottom: 0px;
 }
 
@@ -46,13 +47,12 @@
     width: 90%;
     background-color: white;
     text-align: left;
-    margin-top: 10%;
     overflow: hidden;
     text-overflow: ellipsis;
     border: 1px solid #272559;
     color: #272559;
     border-radius: 10px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 30px;
 }
 
@@ -110,7 +110,7 @@
     cursor: pointer;
     background-color: #272559;
     border: 2px solid #272559;
-    transition:    0.5s;
+    transition: 0.5s;
 }
 
 #box-myaccount #bottoni2{
@@ -125,7 +125,6 @@
 #bottoni2 #annulla{
     width: 35%;
     float: left;
-    margin: 20px 20px 20px 40px;
 }
 
 #bottoni2 #salvaModifiche{

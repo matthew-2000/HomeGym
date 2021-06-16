@@ -72,22 +72,22 @@
                 <input type="hidden" name="email" value="${utente.email}">
                 <input type="hidden" name="password" value="${utente.passwordHash}">
 
-                <label for="nomeId" id="nomelbl">Nome </label>
+                <label for="nomeId" >Nome </label>
                 <input type="text" name="nome" id="nomeId" value="${utente.nome}"><br>
 
-                <label for="cognomeId" id="cognomelbl">Cognome </label>
+                <label for="cognomeId" >Cognome </label>
                 <input type="text" name="cognome" id="cognomeId" value="${utente.cognome}"><br>
 
-                <label for="indirizzoId" id="indirizzolbl">Indirizzo </label>
+                <label for="indirizzoId" >Indirizzo </label>
                 <input type="text" name="indirizzo" id="indirizzoId" value="${utente.via}"><br>
 
-                <label for="capId" id="caplbl">CAP </label>
+                <label for="capId" >CAP </label>
                 <input type="text" name="cap" id="capId" value="${utente.cap}"><br>
 
-                <label for="paeseId" id="paeselbl">Paese </label>
+                <label for="paeseId" >Paese </label>
                 <input type="text" name="paese" id="paeseId" value="${utente.paese}"><br>
 
-                <label for="telefonoId" id="telefonolbl">Numero di telefono </label>
+                <label for="telefonoId" >Numero di telefono </label>
                 <input type="text" name="telefono" id="telefonoId" value="${utente.numero}"><br>
 
                 <button type="button" id="modificaButton">Modifica Account</button>

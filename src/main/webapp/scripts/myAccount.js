@@ -1,5 +1,6 @@
 $(document).ready(function (){
     $("#accountCard").click(function (){
+        //$("#modificaButton").show();
         $("#container-myaccount").show("slow");
         $(".lista_card").css("filter", "blur(5px)");
         $("#bottoni2").hide();
@@ -13,6 +14,7 @@ $(document).ready(function (){
 
     $("#modificaButton").click(function (){
         $("#bottoni2").show();
+        //$("#modificaButton").hide();
         $(".lista_card").css("filter", "blur(5px)");
     });
 
