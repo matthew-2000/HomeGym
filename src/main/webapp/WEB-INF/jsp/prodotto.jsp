@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>HomeGym - ${prodotto.nome}</title>
+    <link rel="stylesheet" href="./css/prodotto.css" type="text/css">
 </head>
 <body>
 <!--
@@ -70,8 +71,22 @@
         </div>
     </div>
 </main>
-
 -->
+    <%@include file="header.jsp"%>
 
+
+    <div id="immagine">
+        <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
+    </div>
+
+    <div id="descrizione">
+        <h1 id="nome-prodotto">${prodotto.nome}</h1>
+        <p id="prezzo-prodotto">Prezzo: ${prodotto.prezzo}</p>
+        <p id="quantita-prodotto">Disponibilità: ${prodotto.quantita}</p>
+        <p id="data-prodotto">Data di consegna: 26/06/2021</p>
+        <button id="aggiungi-carrello">Aggiungi al Carrello</button>
+    </div>
+
+    <%@include file="footer.jsp"%>
 </body>
 </html>

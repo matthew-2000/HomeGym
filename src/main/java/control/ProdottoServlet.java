@@ -1,5 +1,8 @@
 package control;
 
+import model.Prodotto;
+import model.ProdottoDAO;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -12,6 +15,9 @@ public class ProdottoServlet extends HttpServlet {
       throws ServletException, IOException {
 
       String idProdotto = request.getParameter("idProdotto");
+      int id = Integer.parseInt(idProdotto);
+      Prodotto p = ProdottoDAO.doRetrieveById(id);
+      request.setAttribute("prodotto", p);
       System.out.println("ID PRODOTTO = " + idProdotto);
 
       RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotto.jsp");

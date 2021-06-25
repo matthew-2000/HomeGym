@@ -1,0 +1,55 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: white;
+}
+
+#immagine{
+    width: 35%;
+    margin: 50px;
+    box-shadow: 0 10px 20px 0 #272559;
+    border-radius: 30px;
+}
+
+#immagine  img{
+    width: 70%;
+    margin: 10%;
+}
+
+#descrizione{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+}
+
+#prezzo-prodotto{
+    margin: 5%;
+}
+
+#quantita-prodotto{
+    margin: 5%;
+}
+
+#data-prodotto{
+    margin: 5%;
+}
+
+#aggiungi-carrello{
+    position: relative;
+    margin-top: 5%;
+    background-color: white;
+    border: 2px solid #F28E13;
+    border-radius: 15px;
+    color: #F28E13;
+    font-size: 1em;
+    padding: 10px 15px;
+}
+
+#aggiungi-carrello:hover{
+    color: #272559;
+    border: 2px solid #272559;
+}
+
