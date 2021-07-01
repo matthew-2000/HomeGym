@@ -1,0 +1,46 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.container-card{
+    display: flex;
+   /* align-items: center;*/
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    width: 90%;
+}
+
+.card img{
+    width: 30%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3em;
+    margin: 1em;
+    box-shadow: 0 5px 10px 0 #b2bec3;
+    transition: 0.3s;
+    width: 60%;
+
+}
+.card #container-text{
+    margin-left: 20px;
+}
+
+.riepilogo{
+
+}

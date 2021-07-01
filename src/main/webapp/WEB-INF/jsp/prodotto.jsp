@@ -40,10 +40,13 @@
             </div>
 
             <div id="prodotto">
-                <h1>${prodotto.nome}</h1>
-                <p>Prezzo: ${prodotto.prezzo}</p>
-                <p>Disponibilità: ${prodotto.quantita}</p>
-                <button>Aggiungi al Carrello</button>
+                <form action="AggiungiCarrelloServlet" method="post">
+                    <input type="hidden" value="${prodotto.id}" name="idProdotto">
+                    <h1>${prodotto.nome}</h1>
+                    <p>Prezzo: ${prodotto.prezzo}</p>
+                    <p>Disponibilità: ${prodotto.quantita}</p>
+                    <button type="submit">Aggiungi al Carrello</button>
+                </form>
             </div>
         </div>
 
