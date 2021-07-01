@@ -52,17 +52,15 @@ public class ImmaginiProdottiDAO {
         }
     }
 
-    public static List<ImmaginiProdotti> doRetrieveByIdProduct(int idProdotto){
+    public static List<String> doRetrieveByIdProduct(int idProdotto){
         try(Connection con = ConPool.getConnection()){
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM immaginiprodotto WHERE id=?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM immaginiprodotto WHERE idProdotto=?");
             ps.setInt(1, idProdotto);
             ResultSet rs = ps.executeQuery();
-            List<ImmaginiProdotti> lista = new ArrayList<>();
+            List<String> lista = new ArrayList<>();
             while(rs.next()){
-                ImmaginiProdotti im = new ImmaginiProdotti();
-                im.setId(rs.getInt(1));
-                im.setIdProdotto(rs.getInt(2));
-                im.setPath(rs.getString(3));
+                String im;
+                im = rs.getString(3);
                 lista.add(im);
             }
             if(lista.size() > 0)

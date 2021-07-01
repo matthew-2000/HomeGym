@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Prodotto {
 
     private int id;
@@ -9,6 +12,7 @@ public class Prodotto {
     private int quantita;
     private double voto;
     private int idGruppo;
+    private List<String> immagini;
 
     public int getId() {
         return id;
@@ -64,5 +68,21 @@ public class Prodotto {
 
     public void setIdGruppo(int idGruppo) {
         this.idGruppo = idGruppo;
+    }
+
+    public void addImagine(String immagine) {
+        immagini.add(immagine);
+    }
+
+    public String getFirstImmagine() {
+        return immagini.get(0);
+    }
+
+    public void setImmagini(List<String> immagini) {
+        this.immagini = immagini;
+    }
+
+    public List<String> getImmagini() {
+        return immagini;
     }
 }

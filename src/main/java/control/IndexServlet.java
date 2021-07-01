@@ -13,39 +13,27 @@ import java.util.List;
 public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Categoria> listaCategorie = CategoriaDAO.doRetrieveAll();
-        List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();
         List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveAll();
-        List<ImmaginiProdotti> listaImmagini = ImmaginiProdottiDAO.doRetrieveAll();
-        boolean isLogged = false;
 
         List<Prodotto> prodottiMigliori = new ArrayList<>();
-        /*List<ImmaginiProdotti> immaginiMigliori = new ArrayList<>();*/
-        for (Prodotto li : listaProdotti){
-            if (li.getVoto() > 4.75){
-                prodottiMigliori.add(li);
-                /*for(ImmaginiProdotti lis : listaImmagini){
-                    if(lis.getIdProdotto() == li.getId())
-                        immaginiMigliori.add(lis);
-                }*/
+        List<String> immaginiProdotti;
+        for (Prodotto p : listaProdotti){
+            if (p.getId() < 10){ //TODO: DA CAMBIARE
+                immaginiProdotti = ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId());
+                p.setImmagini(immaginiProdotti);
+                prodottiMigliori.add(p);
+
             }
         }
 
-
-
         request.setAttribute("venduti", prodottiMigliori);
-        /*request.setAttribute("immaginiMigliori", immaginiMigliori);*/
         HttpSession session = request.getSession();
         synchronized (session){
             if (session.isNew()){
-                session.setAttribute("isLogged", isLogged);
-                /*session.setAttribute("categorie", listaCategorie);*/
-                /*session.setAttribute("gruppi", listaGruppi);*/
+                session.setAttribute("isLogged", false);
                 session.setAttribute("prodotti", listaProdotti);
-                session.setAttribute("immagini", listaImmagini);
             }
         }
-
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
         dispatcher.forward(request, response);

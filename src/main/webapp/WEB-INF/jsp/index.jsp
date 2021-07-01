@@ -82,7 +82,7 @@
                     <form action="ProdottoServlet" method="post">
                         <h1 id="nome-prodotto">${venduto.nome}</h1>
                         <p class="descrizione">${venduto.descrizione}</p>
-                        <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
+                        <img src="${venduto.getFirstImmagine()}">
                         <p class="price">€${venduto.prezzo}</p>
                         <button type="submit" id="visualizza" value="${venduto.id}" name="idProdotto">Visualizza</button>
                         <button id="aggiungi">Aggiungi</button>

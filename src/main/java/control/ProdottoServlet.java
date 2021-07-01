@@ -1,5 +1,6 @@
 package control;
 
+import model.ImmaginiProdottiDAO;
 import model.Prodotto;
 import model.ProdottoDAO;
 
@@ -17,6 +18,8 @@ public class ProdottoServlet extends HttpServlet {
       String idProdotto = request.getParameter("idProdotto");
       int id = Integer.parseInt(idProdotto);
       Prodotto p = ProdottoDAO.doRetrieveById(id);
+      p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+
       request.setAttribute("prodotto", p);
       System.out.println("ID PRODOTTO = " + idProdotto);
 
