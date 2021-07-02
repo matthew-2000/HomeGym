@@ -28,4 +28,9 @@ $(document).ready(function (){
         $("#check").hide("slow");
         $(".lista_card").css("filter", "blur(0px)");
     });
+
+    $("#logoutCard").click(function (){
+        $("#logout").show("slow");
+        $(".lista_card").css("filter", "blur(5px)");
+    });
 });

@@ -73,5 +73,31 @@ body {
     max-width: 100%;
 }
 
-
+#logout{
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 30%;
+    min-width: 350px;
+    padding: 2% 5% 2%;
+    margin: 100px auto 100px;
+    background: white;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px 0 #272559;
+    transition: 0.3s;
+}
+#logout button {
+    width: 50%;
+    font-size: 2rem;
+    padding: 6px;
+    background-color: #F28E13;
+    border-radius: 10px;
+    border: 2px solid #F28E13;
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
 
