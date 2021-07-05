@@ -33,4 +33,11 @@ $(document).ready(function (){
         $("#logout").show("slow");
         $(".lista_card").css("filter", "blur(5px)");
     });
+
+    $("#annulla-logout").click(function (){
+        $("#logout").hide("slow");
+        $(".lista_card").css("filter", "blur(0px)");
+        $("#bottoni2").hide();
+    });
+
 });

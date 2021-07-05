@@ -63,13 +63,15 @@
             </div>
         </div>
     </section>
+
     <div id="logout">
         <form action="LogoutServlet" method="get">
             <p>Sicuro di voler effettuare il Logout?</p>
-            <button id="annulla-logout">Annulla</button>
-            <button type="submit">SI!</button>
+            <button id="annulla-logout" type="button">Annulla</button>
+            <button id="logout-button" type="submit">Logout</button>
         </form>
     </div>
+
     <div id="container-myaccount">
         <div id="box-myaccount">
             <img src="./images/icons/exit.png" id="exit">

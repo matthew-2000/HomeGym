@@ -13,7 +13,7 @@ public class LogoutServlet extends HttpServlet {
         session.removeAttribute("utente");
         session.removeAttribute("idProdottiCarrello");
         session.removeAttribute("prodottiCarrello");
-        session.removeAttribute("isLogged");
+        session.setAttribute("isLogged", false);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");
         dispatcher.forward(request, response);

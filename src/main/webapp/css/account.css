@@ -77,11 +77,9 @@ body {
     display: none;
     position: absolute;
     top: 30%;
-    left: 35%;
-    width: 30%;
-    min-width: 350px;
+    left: 25%;
+    width: 50%;
     padding: 2% 5% 2%;
-    margin: 100px auto 100px;
     background: white;
     text-align: center;
     align-items: center;
@@ -89,15 +87,38 @@ body {
     box-shadow: 0 10px 20px 0 #272559;
     transition: 0.3s;
 }
-#logout button {
-    width: 50%;
+#logout-button {
+    width: 45%;
+    max-width: 100px;
     font-size: 2rem;
     padding: 6px;
     background-color: #F28E13;
     border-radius: 10px;
     border: 2px solid #F28E13;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 50px;
     color: white;
 }
 
+#logout-button:hover {
+    border: 2px solid #272559;
+    background-color: #272559;
+}
+
+#annulla-logout {
+    max-width: 100px;
+    width: 45%;
+    font-size: 2rem;
+    padding: 6px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #F28E13;
+    text-align: center;
+    margin-top: 50px;
+    color: #F28E13;
+}
+
+#annulla-logout:hover {
+    border: 2px solid #272559;
+    color: #272559;
+}
