@@ -22,7 +22,7 @@ body {
     padding: 3em;
 }
 
-.lista_card #title {
+.lista_card .title {
     color: #272559;
     text-align: center;
     margin-bottom: 50px;

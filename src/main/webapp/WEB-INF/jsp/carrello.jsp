@@ -16,11 +16,10 @@
 <body>
 
     <%Carrello carrello = (Carrello) session.getAttribute("carrello");%>
-    <script>
 
-        var totPrezzo = 0;
-    </script>
     <%@include file="header.jsp"%>
+
+    <h1 id="title">Il mio carrello</h1>
 
     <div id="container">
         <div id="container-card">
@@ -42,7 +41,7 @@
         </div>
     </div>
 
-
     <%@include file="footer.jsp"%>
+
 </body>
 </html>
