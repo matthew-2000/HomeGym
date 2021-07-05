@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Prodotto {
 
@@ -85,4 +86,18 @@ public class Prodotto {
     public List<String> getImmagini() {
         return immagini;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Prodotto prodotto = (Prodotto) o;
+        return id == prodotto.id && idGruppo == prodotto.idGruppo &&
+            Objects.equals(nome, prodotto.nome);
+    }
+
 }

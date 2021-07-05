@@ -1,3 +1,4 @@
+<%@ page import="model.Carrello" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,7 +15,7 @@
 </head>
 <body>
 
-    <%int count = 0;%>
+    <%Carrello carrello = (Carrello) session.getAttribute("carrello");%>
     <script>
 
         var totPrezzo = 0;
@@ -23,24 +24,20 @@
 
     <div id="container">
         <div id="container-card">
-            <c:forEach items="${prodottiCarrello}" var="prodotto">
+            <c:forEach items="${carrello.prodotti}" var="prodottoCarrello">
                 <div class="card">
                     <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
                     <div id="container-text">
-                        <h3>${prodotto.nome}</h3>
-                        <p>${prodotto.prezzo}</p>
+                        <h3>${prodottoCarrello.prodotto.nome}</h3>
+                        <p>${prodottoCarrello.prodotto.prezzo}</p>
                     </div>
                 </div>
-                <%count++;%>
-                <script>
-                    totPrezzo += ${prodotto.prezzo};
-                </script>
             </c:forEach>
         </div>
         <div id="container-riepilogo">
             <h2>Dettagli ordine</h2>
-            <p>Numero articoli: <%=count%></p>
-            <p>Prezzo totale: DA CALCOLARE</p>
+            <p>Numero articoli: <%=carrello.getQuantitaTotale()%></p>
+            <p>Prezzo totale: <%=carrello.getPrezzoTotale()%>></p>
             <button>Procedi all'acquisto</button>
         </div>
     </div>

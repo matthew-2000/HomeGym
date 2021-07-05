@@ -42,6 +42,7 @@
             <div id="prodotto">
                 <form action="AggiungiCarrelloServlet" method="post">
                     <input type="hidden" value="${prodotto.id}" name="idProdotto">
+                    <input type="hidden" value="3" name="quantita">
                     <h1>${prodotto.nome}</h1>
                     <p>Prezzo: ${prodotto.prezzo}</p>
                     <p>Disponibilità: ${prodotto.quantita}</p>
