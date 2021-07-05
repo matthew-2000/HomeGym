@@ -41,7 +41,7 @@
                     <c:choose>
                         <c:when test="${utente.isAdmin()}">
                             <li class="nav-item">
-                                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Admin</a>
+                                <a href="http://localhost:8080/HomeGym_war_exploded/AdminPageServlet" class="nav-link">Admin</a>
                             </li>
                         </c:when>
                         <c:otherwise>

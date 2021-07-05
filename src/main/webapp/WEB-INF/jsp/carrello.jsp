@@ -36,7 +36,7 @@
         <div id="container-riepilogo">
             <h2>Dettagli ordine</h2>
             <p>Numero articoli: <%=carrello.getQuantitaTotale()%></p>
-            <p>Prezzo totale: <%=carrello.getPrezzoTotale()%>></p>
+            <p>Prezzo totale: <%=carrello.getPrezzoTotale()%>€</p>
             <button>Procedi all'acquisto</button>
         </div>
     </div>
