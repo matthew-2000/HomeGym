@@ -46,15 +46,19 @@
                     <h1>${prodotto.nome}</h1>
                     <p>Prezzo: ${prodotto.prezzo}</p>
                     <p>Disponibilità: ${prodotto.quantita}</p>
-                    <button type="submit">Aggiungi al Carrello</button>
+                    <button type="submit">Aggiungi al carrello</button>
+                </form>
+                <form action="AggiungiListaDesideriServlet" method="post">
+                    <input type="hidden" value="${prodotto.id}" name="idProdotto">
+                    <button type="submit">Aggiungi alla lista desideri</button>
                 </form>
             </div>
         </div>
 
         <div id="container-descrizione">
-            <h3>Descrizione prodotto: </h3>
+            <h2>Descrizione prodotto: </h2>
             <br>
-            <p>${prodotto.descrizione}</p>
+            <p style="font-size: 20px">${prodotto.descrizione}</p>
         </div>
     </div>
 

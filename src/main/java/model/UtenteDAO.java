@@ -132,4 +132,36 @@ public class UtenteDAO {
         }
     }
 
+    public static void doSaveListaDesideri(Utente utente, int idProdotto){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                "INSERT INTO desideri (idUtente, idProdotto) VALUES(?,?)",
+                Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, utente.getId());
+            ps.setInt(2, idProdotto);
+
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<Integer> doRetrieveIdListaDesideriById(int id){
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM desideri WHERE idUtente=?");
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            List<Integer> lista = new ArrayList<>();
+            while(rs.next()){
+                lista.add(rs.getInt(3));
+            }
+            return lista;
+        }catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }
+    }
+
 }

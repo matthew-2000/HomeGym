@@ -34,7 +34,7 @@
     </div>
 
     <section class="lista_card">
-        <h1 class="title">Account</h1>
+        <h1 id="title">Account</h1>
         <div class="container-card">
 
 
