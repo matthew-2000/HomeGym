@@ -100,10 +100,20 @@ a {
 
 @media only screen and (max-width: 768px) {
 
+    #logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    .hamburger img {
+        height: 40px;
+        width: 40px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 5rem;
+        top: 150px;
         flex-direction: column;
         background-color: white;
         width: 100%;

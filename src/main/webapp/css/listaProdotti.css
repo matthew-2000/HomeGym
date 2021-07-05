@@ -39,7 +39,7 @@ body {
     transition: 0.3s;
     text-align: center;
     width: 30%;
-    min-width: 400px;
+    min-width: 250px;
 }
 
 .lista_prodotti .card:hover {

@@ -18,7 +18,7 @@
 <header class="header">
     <nav class="navbar">
         <a href="http://localhost:8080/HomeGym_war_exploded/IndexServlet" class="nav-logo">
-            <img src="./images/logo.png">
+            <img id="logo" src="./images/logo.png">
         </a>
         <div id="search-bar">
             <form action="">
