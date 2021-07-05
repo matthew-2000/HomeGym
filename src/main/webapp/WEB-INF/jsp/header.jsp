@@ -53,7 +53,7 @@
                 </c:when>
             </c:choose>
             <li class="nav-item">
-                <a href="#" class="nav-link">Carrello</a>
+                <a href="http://localhost:8080/HomeGym_war_exploded/CarrelloServlet" class="nav-link">Carrello</a>
             </li>
         </ul>
         <div class="hamburger">

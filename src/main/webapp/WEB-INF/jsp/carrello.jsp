@@ -21,21 +21,23 @@
     </script>
     <%@include file="header.jsp"%>
 
-    <div class="container-card">
-        <c:forEach items="${prodottiCarrello}" var="prodotto">
-            <div class="card">
-                <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
-                <div id="container-text">
-                    <h3>${prodotto.nome}</h3>
-                    <p>${prodotto.prezzo}</p>
+    <div id="container">
+        <div id="container-card">
+            <c:forEach items="${prodottiCarrello}" var="prodotto">
+                <div class="card">
+                    <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
+                    <div id="container-text">
+                        <h3>${prodotto.nome}</h3>
+                        <p>${prodotto.prezzo}</p>
+                    </div>
                 </div>
-            </div>
-            <%count++;%>
-            <script>
-                totPrezzo += ${prodotto.prezzo};
-            </script>
-        </c:forEach>
-        <div class="riepilogo">
+                <%count++;%>
+                <script>
+                    totPrezzo += ${prodotto.prezzo};
+                </script>
+            </c:forEach>
+        </div>
+        <div id="container-riepilogo">
             <h2>Dettagli ordine</h2>
             <p>Numero articoli: <%=count%></p>
             <p>Prezzo totale: DA CALCOLARE</p>
