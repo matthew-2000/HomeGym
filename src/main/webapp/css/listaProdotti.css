@@ -81,26 +81,23 @@ body {
 }
 
 .card #visualizza{
-    position: relative;
-    right: 10%;
     background-color: white;
     border: 2px solid #F28E13;
     border-radius: 15px;
     color: #F28E13;
     font-size: 1em;
     padding: 10px 15px;
+    margin: 10px;
 }
 
 .card #aggiungi{
-    position: relative;
-    left: 10%;
-    bottom: 3%;
     background-color: #F28E13;
     border: 1px solid #F28E13;
     border-radius: 15px;
     color: white;
     font-size: 1em;
     padding: 10px 15px;
+    margin: 10px;
 }
 
 #visualizza:hover{
@@ -111,4 +108,14 @@ body {
 #aggiungi:hover{
     background-color: #272559;
     border: 1px solid #272559;
+}
+
+#button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
 }

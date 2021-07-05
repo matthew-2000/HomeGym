@@ -8,7 +8,7 @@
 
 #box-myaccount{
     width: 40%;
-    min-width: 350px;
+    min-width: 250px;
     padding: 2% 5% 2%;
     margin: 100px auto 100px;
     background: white;
@@ -38,7 +38,7 @@
 
 #MyAccountForm label{
     color: #272559;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #nomeId, #cognomeId, #indirizzoId, #capid, #paeseId, #telefonoId{
@@ -56,40 +56,26 @@
     margin-bottom: 30px;
 }
 
-#box-myaccount #modificaButton{
-    width: 50%;
-    font-size: 2rem;
-    padding: 6px;
-    background-color: #F28E13;
-    border-radius: 10px;
-    border: 2px solid #F28E13;
-    text-align: center;
-    margin-top: 20%;
-    color: white;
-}
-
 #box-myaccount #annulla{
-    width: 50%;
     font-size: 2rem;
     padding: 6px;
-    background-color: #F28E13;
+    background-color: white;
     border-radius: 10px;
     border: 2px solid #F28E13;
     text-align: center;
-    margin-top: 20%;
-    color: white;
+    color: #F28E13;
+    margin: 10px;
 }
 
 #box-myaccount input[type = "submit"]{
-    width: 50%;
     font-size: 2rem;
     padding: 6px;
     background-color: #F28E13;
     border-radius: 10px;
     border: 2px solid #F28E13;
     text-align: center;
-    margin-top: 20%;
     color: white;
+    margin: 10px;
 }
 
 #box-myaccount input[type = "submit"]:hover{
@@ -114,24 +100,13 @@
 }
 
 #box-myaccount #bottoni2{
-    display: none;
-    position: absolute;
-    top: 75%;
-    left: 29%;
-    width: 45%;
-
-}
-
-#bottoni2 #annulla{
-    width: 35%;
-    float: left;
-}
-
-#bottoni2 #salvaModifiche{
-    width: 35%;
-    float: left;
-    margin: 20px 0px 0px 20px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
 }
 
 #check{

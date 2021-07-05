@@ -26,8 +26,10 @@
                         <p class="descrizione">${prodotto.descrizione}</p>
                         <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
                         <p class="price">€${prodotto.prezzo}</p>
-                        <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
-                        <button id="aggiungi">Aggiungi</button>
+                        <div id="button-container">
+                            <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
+                            <button id="aggiungi">Aggiungi</button>
+                        </div>
                     </form>
                 </div>
             </c:forEach>

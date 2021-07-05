@@ -84,8 +84,10 @@
                         <p class="descrizione">${venduto.descrizione}</p>
                         <img src="${venduto.getFirstImmagine()}">
                         <p class="price">€${venduto.prezzo}</p>
-                        <button type="submit" id="visualizza" value="${venduto.id}" name="idProdotto">Visualizza</button>
-                        <button id="aggiungi">Aggiungi</button>
+                        <div id="button-container">
+                            <button type="submit" id="visualizza" value="${venduto.id}" name="idProdotto">Visualizza</button>
+                            <button id="aggiungi">Aggiungi</button>
+                        </div>
                     </form>
                 </div>
             </c:forEach>
