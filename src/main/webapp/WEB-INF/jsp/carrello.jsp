@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>HomeGym - Carrello</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/carrello.css">
 </head>
 <body>

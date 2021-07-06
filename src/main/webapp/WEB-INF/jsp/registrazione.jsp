@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Home Gym - Registrazione</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/registrazione.css" type="text/css">
 
 </head>

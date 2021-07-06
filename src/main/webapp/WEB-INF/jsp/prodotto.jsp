@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>HomeGym - ${prodotto.nome}</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/prodotto.css" type="text/css">
 </head>
 <body>

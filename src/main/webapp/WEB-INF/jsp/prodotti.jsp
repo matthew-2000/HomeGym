@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>HomeGym - ${gruppo.nome}</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/listaProdotti.css" type="text/css">
 </head>
 <body>

@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>HomeGym</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/header.css" type="text/css">
     <link rel="stylesheet" href="./css/index.css" type="text/css">
     <link rel="stylesheet" href="./css/listaProdotti.css" type="text/css">

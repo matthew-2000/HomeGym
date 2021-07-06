@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>HomeGym - Admin</title>
-
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/account.css" type="text/css">
     <link rel="stylesheet" href="./css/myaccount.css" type="text/css">
     <script src="./scripts/jquery.js"></script>
@@ -46,13 +46,13 @@
       <div class="card" id="Gestisci">
         <h1 class="nome-card">Gestisci</h1>
         <p class="descrizione">Qui puoi gestire prodotti categorie e gruppi</p>
-        <img src="./images/icons/admin.png">
+        <a href="http://localhost:8080/HomeGym_war_exploded/AdminServlet"><img src="./images/icons/admin.png"></a>
       </div>
 
       <div class="card" id="logoutCard">
         <h1 class="nome-card">Logout</h1>
         <p class="descrizione">Qui puoi effettuare il logout</p>
-        <a href="http://localhost:8080/HomeGym_war_exploded/AdminServelt"><img src="./images/icons/logout.png"></a>
+        <a href="http://localhost:8080/HomeGym_war_exploded/LogoutServlet"><img src="./images/icons/logout.png"></a>
       </div>
     </div>
   </section>

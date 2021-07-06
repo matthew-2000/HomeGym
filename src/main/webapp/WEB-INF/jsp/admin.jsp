@@ -9,43 +9,28 @@
 <html>
 <head>
     <title>HomeGym - Gestione</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/admin.css">
-    <script src="./scripts/jquery.js"></script>
-    <script src="./scripts/adminGestore.js"></script>
 </head>
 <body>
 
     <%@include file="header.jsp"%>
-    <div class="card">
-
-        <select id="scelta">
-            <option value="" disabled selected hidden>Scegli cosa vuoi modificare...</option>
-            <option value="categorie">Categorie</option>
-            <option value="gruppi">Gruppi</option>
-            <option value="prodotti">Prodotti</option>
-        </select>
-
-        <div id="container-gestoreCategorie">
-            <form>
-                Div Categorie
-                <input type="submit" value="Modifica">
-            </form>
+    <div class="container-card">
+        <div class="card">
+            <h1>Gestisci Categorie</h1>
+            <p>Qui puoi modificare le categorie</p>
+            <a href="http://localhost:8080/HomeGym_war_exploded/ModCategorieServlet"><img src="./images/icons/categorie.png"></a>
         </div>
-
-        <div id="container-gestoreGruppi">
-            <form>
-                Div Gruppi
-                <input type="submit" value="Modifica">
-            </form>
+        <div class="card">
+            <h1>Gestisci Gruppi</h1>
+            <p>Qui puoi modificare i gruppi</p>
+            <a><img src="./images/icons/account.png"></a>
         </div>
-
-        <div id="container-gestoreProdotti">
-            <form>
-                Div Prodotti
-                <input type="submit" value="Modifica">
-            </form>
+        <div class="card">
+            <h1>Gestisci Prodotti</h1>
+            <p>Qui puoi modificare i prodotti</p>
+            <a><img src="./images/icons/account.png"></a>
         </div>
-
     </div>
 
     <%@include file="footer.jsp"%>

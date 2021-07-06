@@ -1,0 +1,91 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.card{
+    position: relative;
+    top: 50%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3em;
+    margin: 1em;
+    box-shadow: 0 5px 10px 0 #b2bec3;
+    transition: 0.3s;
+    text-align: center;
+    width: 80%;
+    min-width: 250px;
+    left: 9%;
+}
+
+button{
+    position: relative;
+    margin-top: 5%;
+    background-color: #F28E13;
+    border: 2px solid #F28E13;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px 15px;
+}
+
+button:hover{
+    background-color: #272559;
+    color: white;
+    border: 2px solid #272559;
+}
+
+.card h2{
+    color: #272559;
+    font-weight: bold;
+}
+
+#aggiungi-categoria{
+    display: none;
+    margin-top: 30px;
+
+}
+
+#modifica-categoria{
+    display: none;
+}
+
+#nomeId{
+    margin-bottom: 20px;
+    height: 30px;
+    width: 180px;
+    border-color: #272559;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#descrizioneId{
+    border-color: #272559;
+    border-radius: 20px;
+    width: 230px;
+    height: 100px;
+}
+
+table{
+    position: relative;
+    width: 110%;
+    margin-top: 30px;
+    right: 25px;
+}
+
+table td{
+    text-align: center;
+}
+
+#elimina-categoria{
+    display: none;
+}
+
+#elimina-categoria button{
+    font-size: 50%;
+}
+
+

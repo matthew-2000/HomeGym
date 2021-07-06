@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>HomeGym - Login</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/login.css" type="text/css">
 </head>
 <body>

@@ -45,4 +45,36 @@ public class CategoriaDAO {
         }
     }
 
+    public static void doSave(Categoria categoria){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                    "INSERT INTO categoria (nome, descrizione) VALUES(?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, categoria.getNome());
+            ps.setString(2, categoria.getDescrizione());
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            int id = rs.getInt(1);
+            categoria.setId(id);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void doDelete(int id){
+        try (Connection connection = ConPool.getConnection()) {
+            PreparedStatement ps;
+            ps = connection.prepareStatement("delete from categoria where id=?");
+            ps.setInt(1, id);
+            ps.execute();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+    }
+
 }

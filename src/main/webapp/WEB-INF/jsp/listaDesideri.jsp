@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lista Desideri</title>
+    <title>HomeGym - Lista Desideri</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/listaProdotti.css" type="text/css">
 </head>
 <body>

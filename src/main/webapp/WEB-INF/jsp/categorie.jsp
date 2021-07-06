@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>HomeGym - Categorie</title>
+    <link rel="icon" href="./images/icons/logo.ico">
     <link rel="stylesheet" href="./css/categorie.css" type="text/css">
 </head>
 <body>

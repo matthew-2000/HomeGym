@@ -6,6 +6,16 @@ body {
     font-size: 1.6rem;
 }
 
+.container-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+}
+
 .card{
     position: relative;
     top: 50%;
@@ -16,19 +26,13 @@ body {
     box-shadow: 0 5px 10px 0 #b2bec3;
     transition: 0.3s;
     text-align: center;
-    width: 80%;
+    width: 30%;
     min-width: 250px;
-    left: 9%;
+
 }
 
-#container-gestoreCategorie{
-    display: none;
-}
+.card h1{
+    font-size: medium;
+    color: #272559;
 
-#container-gestoreGruppi{
-    display: none;
-}
-
-#container-gestoreProdotti{
-    display: none;
 }

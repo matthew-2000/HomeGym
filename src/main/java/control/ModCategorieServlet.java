@@ -1,20 +1,31 @@
 package control;
 
+import model.Categoria;
+import model.CategoriaDAO;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "AdminServlet", value = "/AdminServlet")
-public class AdminServlet extends HttpServlet {
+@WebServlet(name = "ModCategorieServlet", value = "/ModCategorieServlet")
+public class ModCategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/admin.jsp");
+        List<Categoria> cat = CategoriaDAO.doRetrieveAll();
+        HttpSession session = request.getSession();
+
+        session.setAttribute("cat", cat);
+
+
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaCategorie.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+
     }
 }
