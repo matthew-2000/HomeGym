@@ -11,10 +11,10 @@
 <head>
     <title>HomeGym - Gestione Categorie</title>
     <link rel="icon" href="./images/icons/logo.ico">
-    <link rel="stylesheet" href="./css/modificaCategorie.css">
+    <link rel="stylesheet" href="./css/adminCategorie.css">
 
     <script src="./scripts/jquery.js"></script>
-    <script src="./scripts/modificaCategorie.js"></script>
+    <script src="./scripts/adminCategorie.js"></script>
 </head>
 <body>
 

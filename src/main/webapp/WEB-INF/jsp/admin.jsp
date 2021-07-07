@@ -24,7 +24,7 @@
         <div class="card">
             <h1>Gestisci Gruppi</h1>
             <p>Qui puoi modificare i gruppi</p>
-            <a><img src="./images/icons/account.png"></a>
+            <a href="http://localhost:8080/HomeGym_war_exploded/ModGruppiServlet"><img src="./images/icons/account.png"></a>
         </div>
         <div class="card">
             <h1>Gestisci Prodotti</h1>

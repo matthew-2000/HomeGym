@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>HomeGym - Modifica ${categoria.nome}</title>
-    <link rel="stylesheet" href="./css/modifica.css">
+    <link rel="stylesheet" href="./css/modificaCategoria.css">
 </head>
 <body>
 

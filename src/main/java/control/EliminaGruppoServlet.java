@@ -1,26 +1,21 @@
 package control;
 
-import model.Categoria;
 import model.CategoriaDAO;
+import model.GruppoDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "ModCategorieServlet", value = "/ModCategorieServlet")
-public class ModCategorieServlet extends HttpServlet {
+@WebServlet(name = "EliminaGruppoServlet", value = "/EliminaGruppoServlet")
+public class EliminaGruppoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Categoria> cat = CategoriaDAO.doRetrieveAll();
-        HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("id"));
 
-        session.setAttribute("cat", cat);
-
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminCategorie.jsp");
+        GruppoDAO.doDelete(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/ModGruppiServlet");
         dispatcher.forward(request, response);
     }
 
