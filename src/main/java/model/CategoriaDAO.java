@@ -77,4 +77,18 @@ public class CategoriaDAO {
         }
     }
 
+    public static void doUpdate(Categoria categoria){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                    "UPDATE categoria SET nome = ?, descrizione = ? WHERE id=" + categoria.getId(),
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, categoria.getNome());
+            ps.setString(2, categoria.getDescrizione());
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

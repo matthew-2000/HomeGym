@@ -17,16 +17,18 @@
 
     <div class="card">
         <h1 class="title">Qui puoi modificare la Categoria ${categoria.nome}</h1>
-        <form>
-            <label>Nome: </label><br>
+        <form action="ModificaCatServlet" method="get">
+            <input type="hidden" name="id" value="${categoria.id}">
+
+            <label for="nomeId">Nome: </label><br>
             <input type="text" name="nome" id="nomeId" value="${categoria.nome}"><br>
 
-            <label>Descrizione: </label><br>
+            <label for="descrizioneId">Descrizione: </label><br>
             <input type="text" name="descrizione" id="descrizioneId" value="${categoria.descrizione}"><br>
 
-            <input type="submit" value="Modifica">
-            <button>Annulla</button>
+            <button type="submit">Modifica</button>
         </form>
+        <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModCategorieServlet'">Annulla</button>
     </div>
 
     <%@include file="footer.jsp"%>

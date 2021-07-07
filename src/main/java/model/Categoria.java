@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Categoria {
 
@@ -45,4 +46,11 @@ public class Categoria {
         return listaGruppi;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categoria categoria = (Categoria) o;
+        return id == categoria.id && Objects.equals(nome, categoria.nome) && Objects.equals(descrizione, categoria.descrizione) && Objects.equals(listaGruppi, categoria.listaGruppi);
+    }
 }
