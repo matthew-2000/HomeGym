@@ -29,7 +29,7 @@
         <div class="card">
             <h1>Gestisci Prodotti</h1>
             <p>Qui puoi modificare i prodotti</p>
-            <a><img src="./images/icons/account.png"></a>
+            <a href="http://localhost:8080/HomeGym_war_exploded/ModProdottiServlet"><img src="./images/icons/account.png"></a>
         </div>
     </div>
 

@@ -1,9 +1,6 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +74,61 @@ public class ProdottoDAO {
                 return null;
         }catch (SQLException ex){
             throw new RuntimeException(ex);
+        }
+    }
+
+    public static void doSave(Prodotto prodotto){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                    "INSERT INTO prodotto (nome, prezzo, descrizione, quantita, voto, idGruppo) VALUES(?,?,?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, prodotto.getNome());
+            ps.setDouble(2, prodotto.getPrezzo());
+            ps.setString(3, prodotto.getDescrizione());
+            ps.setInt(4, prodotto.getQuantita());
+            ps.setDouble(5, prodotto.getVoto());
+            ps.setInt(6, prodotto.getIdGruppo());
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            int id = rs.getInt(1);
+            prodotto.setId(id);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void doDelete(int id){
+        try (Connection connection = ConPool.getConnection()) {
+            PreparedStatement ps;
+            ps = connection.prepareStatement("delete from prodotto where id=?");
+            ps.setInt(1, id);
+            ps.execute();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+    }
+
+    public static void doUpdate(Prodotto prodotto){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                    "UPDATE prodotto SET nome = ?, prezzo = ?, descrizione = ?, quantita = ?, voto = ?, idGruppo = ? WHERE id=" + prodotto.getId(),
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, prodotto.getNome());
+            ps.setDouble(2, prodotto.getPrezzo());
+            ps.setString(3, prodotto.getDescrizione());
+            ps.setInt(4, prodotto.getQuantita());
+            ps.setDouble(5, prodotto.getVoto());
+            ps.setInt(6, prodotto.getIdGruppo());
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
