@@ -17,7 +17,7 @@
 
 <header class="header">
     <nav class="navbar">
-        <a href="http://localhost:8080/HomeGym_war_exploded/IndexServlet" class="nav-logo">
+        <a href="${pageContext.request.contextPath}/IndexServlet" class="nav-logo">
             <img id="logo" src="./images/logo.png">
         </a>
         <div id="search-bar">
@@ -29,31 +29,31 @@
 
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="http://localhost:8080/HomeGym_war_exploded/CategorieServlet" class="nav-link">Categorie</a>
+                <a href="${pageContext.request.contextPath}/CategorieServlet" class="nav-link">Categorie</a>
             </li>
             <c:choose>
                 <c:when test="${utente == null}">
                     <li class="nav-item">
-                        <a href="http://localhost:8080/HomeGym_war_exploded/LogServlet" class="nav-link">Login</a>
+                        <a href="${pageContext.request.contextPath}/LogServlet" class="nav-link">Login</a>
                     </li>
                 </c:when>
                 <c:when test="${utente != null}">
                     <c:choose>
                         <c:when test="${utente.isAdmin()}">
                             <li class="nav-item">
-                                <a href="http://localhost:8080/HomeGym_war_exploded/AdminPageServlet" class="nav-link">Admin</a>
+                                <a href="${pageContext.request.contextPath}/AdminPageServlet" class="nav-link">Admin</a>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li class="nav-item">
-                                <a href="http://localhost:8080/HomeGym_war_exploded/AccountServlet" class="nav-link">Account</a>
+                                <a href="${pageContext.request.contextPath}/AccountServlet" class="nav-link">Account</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
                 </c:when>
             </c:choose>
             <li class="nav-item">
-                <a href="http://localhost:8080/HomeGym_war_exploded/CarrelloServlet" class="nav-link">Carrello</a>
+                <a href="${pageContext.request.contextPath}/CarrelloServlet" class="nav-link">Carrello</a>
             </li>
         </ul>
         <div class="hamburger">

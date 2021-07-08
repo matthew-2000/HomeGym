@@ -19,17 +19,17 @@
         <div class="card">
             <h1>Gestisci Categorie</h1>
             <p>Qui puoi modificare le categorie</p>
-            <a href="http://localhost:8080/HomeGym_war_exploded/ModCategorieServlet"><img src="./images/icons/categorie.png"></a>
+            <a href="${pageContext.request.contextPath}/ModCategorieServlet"><img src="./images/icons/categorie.png"></a>
         </div>
         <div class="card">
             <h1>Gestisci Gruppi</h1>
             <p>Qui puoi modificare i gruppi</p>
-            <a href="http://localhost:8080/HomeGym_war_exploded/ModGruppiServlet"><img src="./images/icons/account.png"></a>
+            <a href="${pageContext.request.contextPath}/ModGruppiServlet"><img src="./images/icons/account.png"></a>
         </div>
         <div class="card">
             <h1>Gestisci Prodotti</h1>
             <p>Qui puoi modificare i prodotti</p>
-            <a href="http://localhost:8080/HomeGym_war_exploded/ModProdottiServlet"><img src="./images/icons/account.png"></a>
+            <a href="${pageContext.request.contextPath}/ModProdottiServlet"><img src="./images/icons/account.png"></a>
         </div>
     </div>
 

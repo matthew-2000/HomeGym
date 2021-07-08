@@ -22,7 +22,7 @@
         <div class="footer-col">
           <h4>HomeGym</h4>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/IndexServlet">Home</a></li>
             <li><a href="#">About Us</a></li>
           </ul>
         </div>
@@ -30,8 +30,8 @@
         <div class="footer-col">
           <h4>Account</h4>
           <ul>
-            <li><a href="#">Ordini</a></li>
-            <li><a href="#">Lista desideri</a></li>
+            <li><a href="">Ordini</a></li>
+            <li><a href="${pageContext.request.contextPath}/ListaDesideriServlet">Lista desideri</a></li>
           </ul>
         </div>
 
