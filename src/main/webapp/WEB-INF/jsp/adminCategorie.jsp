@@ -56,7 +56,7 @@
                         <td>
                             <form action="ModificaCategoriaServlet" method="post">
                                 <input type="hidden" value="${cat.id}" name="id">
-                                <button>-></button>
+                                <button style="min-width: 60px">-></button>
                             </form>
                         </td>
                     </tr>

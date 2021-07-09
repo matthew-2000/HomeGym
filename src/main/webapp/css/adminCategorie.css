@@ -10,14 +10,13 @@ body {
     position: relative;
     background-color: white;
     border-radius: 10px;
-    padding: 3em;
-    margin: 1em;
+    padding: 1em;
+    margin: 50px auto auto;
     box-shadow: 0 5px 10px 0 #b2bec3;
     transition: 0.3s;
     text-align: center;
     width: 80%;
     min-width: 250px;
-    left: 9%;
 }
 
 button{
@@ -51,6 +50,7 @@ button:hover{
 
 #modifica-categoria{
     display: none;
+    overflow-x: auto;
 }
 
 #nomeId{
@@ -71,9 +71,8 @@ button:hover{
 
 table{
     position: relative;
-    width: 110%;
+    width: 100%;
     margin-top: 30px;
-    right: 25px;
 }
 
 table td{
