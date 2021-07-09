@@ -24,8 +24,10 @@ public class ModificaGroupServlet extends HttpServlet {
 
 
         for(Categoria c : categorie) {
-            if(c.getId() == idCategoria)
+            if(c.getId() == idCategoria) {
                 b = true;
+                break;
+            }
         }
         if(!b) {
             String message = "Id categoria Sbagliato";
@@ -34,13 +36,14 @@ public class ModificaGroupServlet extends HttpServlet {
         }
         else {
             Gruppo g = new Gruppo();
+            g.setId(id);
             g.setNome(nome);
             g.setIdCategoria(idCategoria);
             HttpSession session = request.getSession();
             Gruppo group = (Gruppo) session.getAttribute("gruppo");
 
             if(!g.equals(group)) {
-                GruppoDAO.doUpdate(group);
+                GruppoDAO.doUpdate(g);
                 session.setAttribute("gruppo", g);
             }
             address = "/ModGruppiServlet";

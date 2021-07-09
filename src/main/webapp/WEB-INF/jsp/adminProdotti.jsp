@@ -57,9 +57,7 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Prezzo</th>
-                    <th>Descrizione</th>
                     <th>Quantità</th>
-                    <th>Voto</th>
                     <th>ID Gruppo</th>
                 </tr>
 
@@ -68,9 +66,7 @@
                         <td>${prodotto.id}</td>
                         <td>${prodotto.nome}</td>
                         <td>${prodotto.prezzo}€</td>
-                        <td>${prodotto.descrizione}</td>
                         <td>${prodotto.quantita}</td>
-                        <td>${prodotto.voto}</td>
                         <td>${prodotto.idGruppo}</td>
                         <td>
                             <form action="ModificaProdottoServlet" method="post">

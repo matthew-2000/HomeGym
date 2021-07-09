@@ -27,16 +27,19 @@ public class ModificaProductServlet extends HttpServlet {
 
 
         for(Gruppo g : gruppi) {
-            if(g.getId() == idGruppo)
+            if (g.getId() == idGruppo) {
                 b = true;
+                break;
+            }
         }
+
         if(!b) {
             String message = "Id categoria Sbagliato";
             request.setAttribute("message", message);
             address = "/WEB-INF/jsp/error.jsp";
-        }
-        else {
+        } else {
             Prodotto p = new Prodotto();
+            p.setId(id);
             p.setNome(nome);
             p.setPrezzo(prezzo);
             p.setDescrizione(descrizione);
@@ -47,7 +50,7 @@ public class ModificaProductServlet extends HttpServlet {
             Prodotto product = (Prodotto) session.getAttribute("prodotto");
 
             if(!p.equals(product)) {
-                ProdottoDAO.doUpdate(product);
+                ProdottoDAO.doUpdate(p);
                 session.setAttribute("prodotto", p);
             }
             address = "/ModProdottiServlet";

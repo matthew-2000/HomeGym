@@ -102,10 +102,11 @@ public class GruppoDAO {
     public static void doUpdate(Gruppo gruppo){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "UPDATE gruppo SET nome = ?, idCategoria = ? WHERE id=" + gruppo.getId(),
+                    "UPDATE gruppo SET nome=?, idCategoria=? WHERE id=?",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, gruppo.getNome());
             ps.setInt(2, gruppo.getIdCategoria());
+            ps.setInt(3, gruppo.getId());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }

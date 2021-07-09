@@ -19,6 +19,7 @@ public class ProdottoDAO {
                 p.setDescrizione(rs.getString(4));
                 p.setQuantita(rs.getInt(5));
                 p.setVoto(rs.getDouble(6));
+                p.setIdGruppo(rs.getInt(8));
                 return p;
             }
             return null;
@@ -40,6 +41,7 @@ public class ProdottoDAO {
                 p.setDescrizione(rs.getString(4));
                 p.setQuantita(rs.getInt(5));
                 p.setVoto(rs.getDouble(6));
+                p.setIdGruppo(rs.getInt(8));
                 lista.add(p);
             }
             if(lista.size() > 0)
@@ -65,7 +67,7 @@ public class ProdottoDAO {
                 p.setDescrizione(rs.getString(4));
                 p.setQuantita(rs.getInt(5));
                 p.setVoto(rs.getDouble(6));
-                p.setIdGruppo(rs.getInt(7));
+                p.setIdGruppo(rs.getInt(8));
                 lista.add(p);
             }
             if(lista.size() > 0)
@@ -116,7 +118,7 @@ public class ProdottoDAO {
     public static void doUpdate(Prodotto prodotto){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "UPDATE prodotto SET nome = ?, prezzo = ?, descrizione = ?, quantita = ?, voto = ?, idGruppo = ? WHERE id=" + prodotto.getId(),
+                    "UPDATE prodotto SET nome=?, prezzo=?, descrizione=?, quantita=?, voto=?, idGruppo=? WHERE id=?",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, prodotto.getNome());
             ps.setDouble(2, prodotto.getPrezzo());
@@ -124,6 +126,7 @@ public class ProdottoDAO {
             ps.setInt(4, prodotto.getQuantita());
             ps.setDouble(5, prodotto.getVoto());
             ps.setInt(6, prodotto.getIdGruppo());
+            ps.setInt(7, prodotto.getId());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }

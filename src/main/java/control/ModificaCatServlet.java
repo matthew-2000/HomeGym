@@ -26,7 +26,7 @@ public class ModificaCatServlet extends HttpServlet {
         Categoria cat = (Categoria) session.getAttribute("categoria");
 
         if(!cat1.equals(cat)) {
-            CategoriaDAO.doUpdate(cat);
+            CategoriaDAO.doUpdate(cat1);
             session.setAttribute("categoria", cat1);
         }
 

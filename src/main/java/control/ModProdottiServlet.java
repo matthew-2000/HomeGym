@@ -18,6 +18,10 @@ public class ModProdottiServlet extends HttpServlet {
         List<Prodotto> prodotti = ProdottoDAO.doRetrieveAll();
         HttpSession session = request.getSession();
 
+        for (Prodotto p : prodotti) {
+            System.out.println(p.getIdGruppo());
+        }
+
         session.setAttribute("prodotti", prodotti);
 
 
