@@ -2,6 +2,7 @@ package control;
 
 import model.Gruppo;
 import model.GruppoDAO;
+import model.ImmaginiProdottiDAO;
 import model.Prodotto;
 import model.ProdottoDAO;
 
@@ -26,6 +27,10 @@ public class GruppoServlet extends HttpServlet {
         List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveByIdGruppo(idGruppo);
 
         Gruppo g = GruppoDAO.doRetrieveById(idGruppo);
+
+        for (Prodotto p : listaProdotti) {
+            p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+        }
 
         request.setAttribute("prodotti", listaProdotti);
         request.setAttribute("gruppo", g);

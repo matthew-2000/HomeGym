@@ -76,7 +76,7 @@ public class Prodotto {
     }
 
     public String getFirstImmagine() {
-        return immagini.get(0);
+        return immagini != null ? immagini.get(0) : "";
     }
 
     public void setImmagini(List<String> immagini) {

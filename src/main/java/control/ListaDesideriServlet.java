@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import model.ImmaginiProdottiDAO;
 import model.Prodotto;
 import model.ProdottoDAO;
 import model.Utente;
@@ -31,6 +32,9 @@ public class ListaDesideriServlet extends HttpServlet {
           listaDesideri.add(ProdottoDAO.doRetrieveById(id));
       }
 
+      for (Prodotto p : listaDesideri) {
+        p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+      }
       request.setAttribute("desideri", listaDesideri);
       RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/listaDesideri.jsp");
       dispatcher.forward(request, response);

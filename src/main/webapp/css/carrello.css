@@ -95,7 +95,7 @@ body {
 
 
 #empty-message {
-    margin: auto;
+    margin: 50px auto auto;
     width: 80%;
     max-width: 400px;
 }

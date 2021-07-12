@@ -22,16 +22,19 @@
 
             <c:forEach items="${prodotti}" var="prodotto">
                 <div class="card">
-                    <form action="ProdottoServlet" method="post">
-                        <h1 id="nome-prodotto">${prodotto.nome}</h1>
-                        <p class="descrizione">${prodotto.descrizione}</p>
-                        <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
-                        <p class="price">€${prodotto.prezzo}</p>
-                        <div id="button-container">
+                    <h1 id="nome-prodotto">${prodotto.nome}</h1>
+                    <p class="descrizione">${prodotto.descrizione}</p>
+                    <img src="${prodotto.getFirstImmagine()}">
+                    <p class="price">€${prodotto.prezzo}</p>
+                    <div id="button-container">
+                        <form action="ProdottoServlet" method="post">
                             <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
-                            <button id="aggiungi">Aggiungi</button>
-                        </div>
-                    </form>
+                        </form>
+                        <form action="AggiungiCarrelloServlet" method="post">
+                            <button type="submit" id="aggiungi" value="${prodotto.id}" name="idProdotto">Aggiungi</button>
+                            <input type="hidden" value="1" name="quantita">
+                        </form>
+                    </div>
                 </div>
             </c:forEach>
 

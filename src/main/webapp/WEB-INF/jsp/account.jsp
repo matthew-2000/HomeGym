@@ -54,7 +54,7 @@
             <div class="card" id="listaDesideriCard">
                 <h1 class="nome-card">Lista Desideri</h1>
                 <p class="descrizione">Qui puoi visualizzare la tua lista dei desideri</p>
-                <img src="./images/icons/wishlist.png">
+                <a href="${pageContext.request.contextPath}/ListaDesideriServlet"><img src="./images/icons/wishlist.png"></a>
             </div>
 
             <div class="card" id="logoutCard">

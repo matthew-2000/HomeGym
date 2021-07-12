@@ -20,10 +20,9 @@
 
     <%@include file="header.jsp"%>
 
-    <h1 id="title">Il mio carrello</h1>
-
     <% if (!carrello.getProdotti().isEmpty()) { %>
-        <div id="container">
+    <h1 id="title">Il mio carrello</h1>
+    <div id="container">
             <div id="container-card">
                 <c:forEach items="${carrello.prodotti}" var="prodottoCarrello">
                     <div class="card">
@@ -62,7 +61,7 @@
 
         <div id="empty-message">
             <h3>Non ci sono articoli nel carrello!</h3>
-            <p>Aggiungi gli articoli che più desideri per effettuare un ordine.</p>
+            <p>Aggiungi gli articoli per effettuare un ordine.</p>
         </div>
 
     <% } %>

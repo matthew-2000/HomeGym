@@ -149,6 +149,18 @@ public class UtenteDAO {
         }
     }
 
+    public static void doDeleteListaDesideri(int idUtente, int idProdotto) {
+        try (Connection connection = ConPool.getConnection()) {
+            PreparedStatement ps;
+            ps = connection.prepareStatement("delete from desideri where idUtente=? and idProdotto=?");
+            ps.setInt(1, idUtente);
+            ps.setInt(2, idProdotto);
+            ps.execute();
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        }
+    }
+
     public static List<Integer> doRetrieveIdListaDesideriById(int id){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT * FROM desideri WHERE idUtente=?");

@@ -119,3 +119,13 @@ body {
     margin: auto;
     width: 90%;
 }
+
+#empty-message {
+    margin: 50px auto auto;
+    width: 80%;
+    max-width: 400px;
+}
+
+#empty-message h3{
+    color: #272559;
+}

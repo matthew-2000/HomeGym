@@ -16,25 +16,39 @@
 
 <%@include file="header.jsp"%>
 
-<section class="lista_prodotti">
-    <h1 id="title">La tua lista desideri</h1>
+<c:choose>
+    <c:when test="${desideri.isEmpty()}">
+        <div id="empty-message">
+            <h3>Non ci sono articoli nella lista desideri!</h3>
+            <p>Aggiungi gli articoli che più desideri per visualizzare la lista.</p>
+        </div>
+    </c:when>
 
-    <div class="container-prodotti">
-        <c:forEach items="${desideri}" var="prodotto">
-            <div class="card">
-                <form action="ProdottoServlet" method="post">
-                    <h1 id="nome-prodotto">${prodotto.nome}</h1>
-                    <p class="descrizione">${prodotto.descrizione}</p>
-                    <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
-                    <p class="price">€${prodotto.prezzo}</p>
-                    <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
-                    <button id="aggiungi">Aggiungi</button>
-                </form>
+    <c:otherwise>
+        <section class="lista_prodotti">
+            <h1 id="title">La tua lista desideri</h1>
+
+            <div class="container-prodotti">
+                <c:forEach items="${desideri}" var="prodotto">
+                    <div class="card">
+                        <h1 id="nome-prodotto">${prodotto.nome}</h1>
+                        <p class="descrizione">${prodotto.descrizione}</p>
+                        <img src="${prodotto.getFirstImmagine()}">
+                        <p class="price">€${prodotto.prezzo}</p>
+                        <div id="button-container">
+                            <form action="ProdottoServlet" method="post">
+                                <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
+                            </form>
+                            <form action="RimuoviListaDesideriServlet" method="post">
+                                <button type="submit" id="aggiungi" value="${prodotto.id}" name="idProdotto">Rimuovi</button>
+                            </form>
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
-        </c:forEach>
-    </div>
-</section>
-
+        </section>
+    </c:otherwise>
+</c:choose>
 
 <%@include file="footer.jsp"%>
 
