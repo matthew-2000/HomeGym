@@ -18,13 +18,7 @@ public class ModProdottiServlet extends HttpServlet {
         List<Prodotto> prodotti = ProdottoDAO.doRetrieveAll();
         HttpSession session = request.getSession();
 
-        for (Prodotto p : prodotti) {
-            System.out.println(p.getIdGruppo());
-        }
-
         session.setAttribute("prodotti", prodotti);
-
-
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminProdotti.jsp");
         dispatcher.forward(request, response);

@@ -20,10 +20,8 @@ public class LoginServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("utente", utente);
-            boolean isLogged = (boolean) session.getAttribute("isLogged");
-            if(!isLogged){
-                session.setAttribute("isLogged", true);
-            }
+            session.setAttribute("isLogged", true);
+
         }//inserire errore
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");

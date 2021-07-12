@@ -16,13 +16,19 @@ public class CarrelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String cancellaIdSring = request.getParameter("cancellaProdotto");
+        if (cancellaIdSring != null) {
+            int idProdotto = Integer.parseInt(cancellaIdSring);
+            HttpSession session = request.getSession();
+            Carrello carrello = (Carrello) session.getAttribute("carrello");
+            carrello.removeProdotto(idProdotto);
+        }
+
         HttpSession session = request.getSession();
         Carrello carrello = (Carrello) session.getAttribute("carrello");
         if(carrello == null) {
             carrello = new Carrello();
             session.setAttribute("carrello", carrello);
-            String message = "Il carrello è ancora vuoto";
-            request.setAttribute("message", message);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/carrello.jsp");

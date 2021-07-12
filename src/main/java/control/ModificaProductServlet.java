@@ -25,7 +25,6 @@ public class ModificaProductServlet extends HttpServlet {
 
         List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
 
-
         for(Gruppo g : gruppi) {
             if (g.getId() == idGruppo) {
                 b = true;

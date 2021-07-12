@@ -96,8 +96,11 @@ public class Prodotto {
             return false;
         }
         Prodotto prodotto = (Prodotto) o;
-        return id == prodotto.id && idGruppo == prodotto.idGruppo &&
-            Objects.equals(nome, prodotto.nome);
+        return id == prodotto.id && Double.compare(prodotto.prezzo, prezzo) == 0 &&
+            quantita == prodotto.quantita && Double.compare(prodotto.voto, voto) == 0 &&
+            idGruppo == prodotto.idGruppo && Objects.equals(nome, prodotto.nome) &&
+            Objects.equals(descrizione, prodotto.descrizione) &&
+            Objects.equals(immagini, prodotto.immagini);
     }
 
 }

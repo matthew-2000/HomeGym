@@ -22,25 +22,50 @@
 
     <h1 id="title">Il mio carrello</h1>
 
-    <div id="container">
-        <div id="container-card">
-            <c:forEach items="${carrello.prodotti}" var="prodottoCarrello">
-                <div class="card">
-                    <img src="./images/prodotti/Categoria 1/Gruppo 1 - Manubri e Pesi/KIT MANUBRI BODYBUILDING 20KG FILETTATI/1.png">
-                    <div id="container-text">
-                        <h3>${prodottoCarrello.prodotto.nome}</h3>
-                        <p>${prodottoCarrello.prodotto.prezzo}</p>
+    <% if (!carrello.getProdotti().isEmpty()) { %>
+        <div id="container">
+            <div id="container-card">
+                <c:forEach items="${carrello.prodotti}" var="prodottoCarrello">
+                    <div class="card">
+                        <img src="${prodottoCarrello.prodotto.getFirstImmagine()}">
+                        <div id="container-text">
+                            <h3>${prodottoCarrello.prodotto.nome}</h3>
+                            <p>${prodottoCarrello.prodotto.prezzo}€</p>
+                            <p>Quantità: ${prodottoCarrello.quantita}</p>
+                            <form action="CarrelloServlet" method="post">
+                                <input type="hidden" value="${prodottoCarrello.prodotto.id}" name="cancellaProdotto">
+                                <button>Rimuovi</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </div>
+            <div id="container-riepilogo">
+                <h2 style="color: #272559">Dettaglio ordine</h2>
+                <p>Numero articoli:<span style="font-weight: bold "> <%=carrello.getQuantitaTotale()%></span></p>
+                <p>Prezzo totale: <span style="font-weight: bold "> <%=carrello.getPrezzoTotale()%>€</span></p>
+                <c:choose>
+                    <c:when test="${sessionScope.isLogged}">
+                        <form action="" method="post">
+                            <button>Procedi all'acquisto</button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <form action="LogServlet" method="get">
+                            <button>Procedi all'acquisto</button>
+                        </form>
+                    </c:otherwise>
+                </c:choose>
+            </div>
         </div>
-        <div id="container-riepilogo">
-            <h2>Dettagli ordine</h2>
-            <p>Numero articoli: <%=carrello.getQuantitaTotale()%></p>
-            <p>Prezzo totale: <%=carrello.getPrezzoTotale()%>€</p>
-            <button>Procedi all'acquisto</button>
+    <% } else { %>
+
+        <div id="empty-message">
+            <h3>Non ci sono articoli nel carrello!</h3>
+            <p>Aggiungi gli articoli che più desideri per effettuare un ordine.</p>
         </div>
-    </div>
+
+    <% } %>
 
     <%@include file="footer.jsp"%>
 

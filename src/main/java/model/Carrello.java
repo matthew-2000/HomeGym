@@ -31,6 +31,10 @@ public class Carrello {
     }
   }
 
+  public void removeProdotto(int idProdotto) {
+    prodotti.removeIf(p -> p.getProdotto().getId() == idProdotto);
+  }
+
   public float getPrezzoTotale() {
     float tot = 0;
     for (ProdottoCarrello p : prodotti) {

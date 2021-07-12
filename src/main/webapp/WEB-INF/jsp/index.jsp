@@ -80,16 +80,19 @@
 
             <c:forEach items="${venduti}" var="venduto">
                 <div class="card">
-                    <form action="ProdottoServlet" method="post">
-                        <h1 id="nome-prodotto">${venduto.nome}</h1>
-                        <p class="descrizione">${venduto.descrizione}</p>
-                        <img src="${venduto.getFirstImmagine()}">
-                        <p class="price">€${venduto.prezzo}</p>
-                        <div id="button-container">
+                    <h1 id="nome-prodotto">${venduto.nome}</h1>
+                    <p class="descrizione">${venduto.descrizione}</p>
+                    <img src="${venduto.getFirstImmagine()}">
+                    <p class="price">€${venduto.prezzo}</p>
+                    <div id="button-container">
+                        <form action="ProdottoServlet" method="post">
                             <button type="submit" id="visualizza" value="${venduto.id}" name="idProdotto">Visualizza</button>
-                            <button id="aggiungi">Aggiungi</button>
-                        </div>
-                    </form>
+                        </form>
+                        <form action="AggiungiCarrelloServlet" method="post">
+                            <button type="submit" id="aggiungi" value="${venduto.id}" name="idProdotto">Aggiungi</button>
+                            <input type="hidden" value="1" name="quantita">
+                        </form>
+                    </div>
                 </div>
             </c:forEach>
 
