@@ -1,4 +1,4 @@
-package control;
+package control.Account;
 
 import model.Utente;
 import model.UtenteDAO;

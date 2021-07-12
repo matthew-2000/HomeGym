@@ -1,4 +1,4 @@
-package control;
+package control.Account;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

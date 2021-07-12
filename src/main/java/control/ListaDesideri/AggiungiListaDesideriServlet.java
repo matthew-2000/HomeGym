@@ -1,4 +1,4 @@
-package control;
+package control.ListaDesideri;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -7,8 +7,8 @@ import java.io.IOException;
 import model.Utente;
 import model.UtenteDAO;
 
-@WebServlet(name = "RimuoviListaDesideriServlet", value = "/RimuoviListaDesideriServlet")
-public class RimuoviListaDesideriServlet extends HttpServlet {
+@WebServlet(name = "AggiungiListaDesideriServlet", value = "/AggiungiListaDesideriServlet")
+public class AggiungiListaDesideriServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
@@ -18,14 +18,21 @@ public class RimuoviListaDesideriServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+      int id = Integer.parseInt(request.getParameter("idProdotto"));
 
       HttpSession session = request.getSession();
       Utente u = (Utente) session.getAttribute("utente");
 
-      int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
-      UtenteDAO.doDeleteListaDesideri(u.getId(), idProdotto);
+      RequestDispatcher dispatcher;
+      if (u == null) {
+          //mandiamo al login
+          dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+      } else {
+          UtenteDAO.doSaveListaDesideri(u, id);
+          dispatcher = request.getRequestDispatcher("/ListaDesideriServlet");
+      }
 
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/ListaDesideriServlet");
       dispatcher.forward(request, response);
+
   }
 }
