@@ -19,7 +19,7 @@
   <%@include file="header.jsp"%>
 
   <div class="card">
-    <h2>Qui puoi modificare o aggiungere un Gruppo</h2>
+    <h2>Qui puoi modificare, aggiungere o eliminare un Gruppo</h2>
     <div class="bottoni">
       <button id="aggiungiGruppo">Aggiungi Gruppo</button>
       <button id="modificaGruppo">Modifica Gruppo</button>

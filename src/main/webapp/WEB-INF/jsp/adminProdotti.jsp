@@ -19,7 +19,7 @@
     <%@include file="header.jsp"%>
 
     <div class="card">
-        <h2>Qui puoi modificare o aggiungere i Prodotti</h2>
+        <h2>Qui puoi modificare, aggiungere o eliminare i Prodotti</h2>
         <div class="bottoni">
             <button id="aggiungiProdotto">Aggiungi Prodotto</button>
             <button id="modificaProdotto">Modifica Prodotto</button>

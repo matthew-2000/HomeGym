@@ -21,7 +21,7 @@
     <%@include file="header.jsp"%>
 
     <div class="card">
-        <h2>Qui puoi modificare o aggiungere una categoria</h2>
+        <h2>Qui puoi modificare, aggiungere o eliminare una categoria</h2>
         <div class="bottoni">
             <button id="aggiungiCategoria">Aggiungi Categoria</button>
             <button id="modificaCategoria">Modifica Categoria</button>
