@@ -28,10 +28,10 @@
 
     <div id="aggiungi-gruppo">
       <form action="AggiungiGruppoServlet" method="get">
-        <p>Nome: </p><br>
+        <p>Nome: </p>
         <input type="text" name="nomeGruppo" id="nomeId"><br>
 
-        <p>ID Categoria: </p><br>
+        <p>ID Categoria: </p>
         <input type="text" name="idCategoria" id="categoriaId"><br>
         <button class="confermaModifiche" type="submit">Conferma</button>
       </form>

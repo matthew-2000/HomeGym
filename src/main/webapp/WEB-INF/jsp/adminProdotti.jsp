@@ -28,22 +28,22 @@
 
         <div id="aggiungi-prodotto">
             <form action="AggiungiProdottoServlet" method="get">
-                <p>Nome: </p><br>
+                <p>Nome: </p>
                 <input type="text" name="nomeProdotto" id="nomeId"><br>
 
-                <p>Prezzo: </p><br>
+                <p>Prezzo: </p>
                 <input type="text" name="prezzoProdotto" id="prezzoId">
 
-                <p>Descrizione: </p><br>
+                <p>Descrizione: </p>
                 <textarea name="descrizioneProdotto" id="descrizioneId"></textarea> <br>
 
-                <p>Quantità: </p><br>
+                <p>Quantità: </p>
                 <input type="text" name="quantitaProdotto" id="quantitaId"><br>
 
-                <p>Voto: </p><br>
+                <p>Voto: </p>
                 <input type="text" name="votoProdotto" id="votoId"><br>
 
-                <p>ID Gruppo</p><br>
+                <p>ID Gruppo</p>
                 <input type="text" name="idGruppo" id="gruppoId"><br>
 
                 <button class="confermaModifiche" type="submit">Conferma</button>

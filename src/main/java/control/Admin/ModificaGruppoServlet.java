@@ -1,4 +1,4 @@
-package control;
+package control.Admin;
 
 import model.Categoria;
 import model.CategoriaDAO;

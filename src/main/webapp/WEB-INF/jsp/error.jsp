@@ -11,7 +11,16 @@
     <title>HomeGym - Errore</title>
 </head>
 <body>
+    <%@include file="header.jsp"%>
+
     <%String message = (String) request.getAttribute("message");%>
-    <%=message%>
+
+    <div class="">
+        <h2>Attenzione, errore!</h2>
+        <h4><%=message%></h4>
+    </div>
+
+    <%@include file="footer.jsp"%>
+
 </body>
 </html>

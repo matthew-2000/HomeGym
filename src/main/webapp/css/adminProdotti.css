@@ -21,7 +21,7 @@ body {
 
 button{
     position: relative;
-    margin-top: 5%;
+    margin-top: 5px;
     background-color: #F28E13;
     border: 2px solid #F28E13;
     border-radius: 15px;
@@ -63,6 +63,7 @@ button:hover{
 }
 
 #descrizioneId{
+    margin-bottom: 20px;
     border-color: #272559;
     border-radius: 20px;
     width: 230px;
@@ -86,10 +87,6 @@ table td button {
 
 #elimina-prodotto{
     display: none;
-}
-
-#elimina-prodotto button{
-    font-size: 50%;
 }
 
 

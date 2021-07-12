@@ -1,9 +1,7 @@
-package control;
+package control.Admin;
 
 import model.Categoria;
 import model.CategoriaDAO;
-import model.Gruppo;
-import model.GruppoDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,18 +9,18 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ModGruppiServlet", value = "/ModGruppiServlet")
-public class ModGruppiServlet extends HttpServlet {
+@WebServlet(name = "ModCategorieServlet", value = "/ModCategorieServlet")
+public class ModCategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
+        List<Categoria> cat = CategoriaDAO.doRetrieveAll();
         HttpSession session = request.getSession();
 
-        session.setAttribute("gruppi", gruppi);
+        session.setAttribute("cat", cat);
 
 
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminGruppi.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminCategorie.jsp");
         dispatcher.forward(request, response);
     }
 

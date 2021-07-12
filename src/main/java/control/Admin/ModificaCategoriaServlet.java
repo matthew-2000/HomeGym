@@ -1,17 +1,15 @@
-package control;
+package control.Admin;
 
-import model.Gruppo;
-import model.GruppoDAO;
-import model.Prodotto;
-import model.ProdottoDAO;
+import model.Categoria;
+import model.CategoriaDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ModificaProdottoServlet", value = "/ModificaProdottoServlet")
-public class ModificaProdottoServlet extends HttpServlet {
+@WebServlet(name = "ModificaCategoriaServlet", value = "/ModificaCategoriaServlet")
+public class ModificaCategoriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,11 +19,11 @@ public class ModificaProdottoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        Prodotto product = ProdottoDAO.doRetrieveById(id);
+        Categoria cat = CategoriaDAO.doRetrieveById(id);
         HttpSession session = request.getSession();
-        session.setAttribute("prodotto", product);
+        session.setAttribute("categoria", cat);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaProdotto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaCategoria.jsp");
         dispatcher.forward(request, response);
     }
 }

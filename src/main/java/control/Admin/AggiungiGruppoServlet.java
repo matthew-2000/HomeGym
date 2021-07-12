@@ -1,4 +1,4 @@
-package control;
+package control.Admin;
 
 import model.Categoria;
 import model.CategoriaDAO;
@@ -21,8 +21,10 @@ public class AggiungiGruppoServlet extends HttpServlet {
         int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
         List<Categoria> categorie = CategoriaDAO.doRetrieveAll();
         for(Categoria c : categorie) {
-            if(c.getId() == idCategoria)
+            if (c.getId() == idCategoria) {
                 b = true;
+                break;
+            }
         }
         if(!b) {
             String message = "Id categoria Sbagliato";

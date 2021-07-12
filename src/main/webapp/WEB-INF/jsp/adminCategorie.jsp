@@ -30,10 +30,10 @@
 
         <div id="aggiungi-categoria">
             <form action="AggiungiCategoriaServlet" method="get">
-                <p>Nome: </p><br>
+                <p>Nome: </p>
                 <input type="text" name="nomeCategoria" id="nomeId"><br>
 
-                <p>Descrizione: </p><br>
+                <p>Descrizione: </p>
                 <textarea name="descrizioneCategoria" id="descrizioneId"></textarea> <br>
                 <button class="confermaModifiche" type="submit">Conferma</button>
             </form>
