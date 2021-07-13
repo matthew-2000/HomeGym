@@ -39,7 +39,7 @@
                                             <form action="GruppoServlet" method="post">
                                                 <input type="hidden" name="categoriaId" value="${categoria.id}">
                                                 <input type="hidden" name="gruppoId" value="${gruppo.id}">
-                                                <input type="submit" value="${gruppo.nome}">
+                                                <input id="gruppo-button" type="submit" value="${gruppo.nome}">
                                             </form>
                                         </li>
                                     </c:forEach>

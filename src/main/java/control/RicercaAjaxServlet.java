@@ -19,7 +19,6 @@ public class RicercaAjaxServlet extends HttpServlet {
       if (query != null) {
           List<Prodotto> prodotti = ProdottoDAO.doRetrieveByNome(query + "*", 0, 10);
           for (Prodotto p : prodotti) {
-            System.out.println(p.getNome());
             prodJson.put(p.getNome());
           }
       }

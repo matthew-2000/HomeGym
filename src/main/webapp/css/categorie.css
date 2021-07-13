@@ -54,6 +54,13 @@ body {
     opacity: 1;
 }
 
+.box .categoria:hover #gruppo-button {
+    background-color: white;
+    border: 2px solid white;
+    color: #272559;
+    transition: 0.5s;
+}
+
 .box .categoria span{
     width: 20px;
     height: 20px;
@@ -79,28 +86,21 @@ body {
     list-style: none;
 }
 
-.box .categoria ul li{
-    color: #272559;
-}
-
-.categoria ul li a{
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #272559;
-    text-decoration: none;
-    font-weight: 300;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.categoria ul li a:hover{
+#gruppo-button {
+    margin-top: 15px;
+    font-size: 2rem;
+    padding: 10px 5px;
+    background-color: #F28E13;
+    border-radius: 15px;
+    border: 2px solid #F28E13;
+    text-align: center;
     color: white;
-    padding-left: 8px;
 }
-/*
-.box .categoria{
-    background-image: url("../images/categorie/1.png");
-    background-repeat: no-repeat;
 
+.box .categoria:hover #gruppo-button:hover {
+    cursor: pointer;
+    background-color: #272559;
+    border: 2px solid #272559;
+    color: white;
+    transition: 0.5s;
 }
- */
