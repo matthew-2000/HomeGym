@@ -7,7 +7,6 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import model.Ordine;
 import model.OrdineDAO;
-import model.Prodotto;
 import model.ProdottoCarrello;
 import model.Utente;
 
@@ -26,15 +25,13 @@ public class OrdiniServlet extends HttpServlet {
     Utente u = (Utente) session.getAttribute("utente");
     ArrayList<Ordine> ordiniList = OrdineDAO.doRetrieveAllByIdUtente(u.getId());
 
-    /*
     for (Ordine o : ordiniList) {
       System.out.println(o.getDataOrdine());
-      for (ProdottoCarrello p : o.getListaProdotti()) {
+      for (ProdottoCarrello p : o.getProdotti()) {
         System.out.println(p.getQuantita());
         System.out.println(p.getProdotto().getNome());
       }
     }
-     */
 
     request.setAttribute("ordini", ordiniList);
     RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/ordini.jsp");

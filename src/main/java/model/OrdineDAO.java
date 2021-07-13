@@ -30,10 +30,7 @@ public class OrdineDAO {
         }
         listaOrdini.add(ordine);
       }
-      if (listaOrdini.size() > 0)
-        return listaOrdini;
-
-      return null;
+      return listaOrdini;
     }catch (SQLException ex){
       throw new RuntimeException(ex);
     }

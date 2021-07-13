@@ -33,6 +33,9 @@ public class EffettuaOrdineServlet extends HttpServlet {
 
       OrdineDAO.doSave(carrello, u.getId());
 
+      carrello = new Carrello();
+      session.setAttribute("carrello", carrello);
+
       RequestDispatcher dispatcher = request.getRequestDispatcher("/OrdiniServlet");
       dispatcher.forward(request, response);
 
