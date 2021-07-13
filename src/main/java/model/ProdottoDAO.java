@@ -135,5 +135,30 @@ public class ProdottoDAO {
         }
     }
 
+    public static List<Prodotto> doRetrieveByNome(String against, int offset, int limit) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                "SELECT * FROM prodotto WHERE MATCH(nome) AGAINST(? IN BOOLEAN MODE) LIMIT ?, ?");
+            ps.setString(1, against);
+            ps.setInt(2, offset);
+            ps.setInt(3, limit);
+            ArrayList<Prodotto> prodotti = new ArrayList<>();
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Prodotto p = new Prodotto();
+                p.setId(rs.getInt(1));
+                p.setNome(rs.getString(2));
+                p.setPrezzo(rs.getDouble(3));
+                p.setDescrizione(rs.getString(4));
+                p.setQuantita(rs.getInt(5));
+                p.setVoto(rs.getDouble(6));
+                p.setIdGruppo(rs.getInt(8));
+                prodotti.add(p);
+            }
+            return prodotti;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

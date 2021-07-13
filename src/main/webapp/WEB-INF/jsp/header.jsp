@@ -15,14 +15,48 @@
 </head>
 <body>
 
+<script>
+
+    function ricerca(str) {
+        var dataList = document.getElementById('ricerca-list');
+        if (str.length == 0) {
+            // rimuove elementi <option> (suggerimenti) esistenti
+            dataList.innerHTML = '';
+            return;
+        }
+
+        var xmlHttpReq = new XMLHttpRequest();
+        xmlHttpReq.responseType = 'json';
+        xmlHttpReq.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // rimuove elementi <option> (suggerimenti) esistenti
+                dataList.innerHTML = '';
+
+                for ( var i in this.response) {
+                    // crea un elemento option
+                    var option = document.createElement('option');
+                    // setta il valore
+                    option.value = this.response[i];
+                    // aggiunge elemento <option> a datalist
+                    dataList.appendChild(option);
+                }
+            }
+        }
+        xmlHttpReq.open("GET", "RicercaAjaxServlet?search=" + encodeURIComponent(str), true);
+        xmlHttpReq.send();
+    }
+
+</script>
+
 <header class="header">
     <nav class="navbar">
         <a href="${pageContext.request.contextPath}/IndexServlet" class="nav-logo">
             <img id="logo" src="./images/logo.png">
         </a>
         <div id="search-bar">
-            <form action="">
-                <input type="text" placeholder="Cerca prodotti..." name="search">
+            <form action="RicercaServlet" method="post">
+                <input type="text" list="ricerca-list" placeholder="Cerca prodotti..." onkeyup="ricerca(this.value)" name="search" value="<c:out value="${param.search}" />">
+                <datalist id="ricerca-list"></datalist>
                 <button type="submit">Vai</button>
             </form>
         </div>
