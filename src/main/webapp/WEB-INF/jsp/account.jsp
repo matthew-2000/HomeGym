@@ -48,13 +48,14 @@
             <div class="card" id="ordiniCard">
                 <h1 class="nome-card">I miei ordini</h1>
                 <p class="descrizione">Qui puoi visualizzare tutti i tuoi ordini</p>
-                <img src="./images/icons/orders.png">
+                <a href="${pageContext.request.contextPath}/OrdiniServlet"><img src="./images/icons/orders.png" alt=""></a>
+
             </div>
 
             <div class="card" id="listaDesideriCard">
                 <h1 class="nome-card">Lista Desideri</h1>
                 <p class="descrizione">Qui puoi visualizzare la tua lista dei desideri</p>
-                <a href="${pageContext.request.contextPath}/ListaDesideriServlet"><img src="./images/icons/wishlist.png"></a>
+                <a href="${pageContext.request.contextPath}/ListaDesideriServlet"><img src="./images/icons/wishlist.png" alt=""></a>
             </div>
 
             <div class="card" id="logoutCard">

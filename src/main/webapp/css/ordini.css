@@ -1,0 +1,100 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: white;
+}
+
+.lista-ordini {
+    padding: 3em;
+}
+
+.lista-ordini #title {
+    color: #272559;
+    text-align: center;
+    border-bottom: 2px solid #272559;
+}
+
+.container-ordini {
+    margin: 50px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.container-ordini h3 {
+    color: #272559;
+    text-align: center;
+    border-bottom: 2px solid #272559;
+}
+
+.card-ordine {
+    padding: 3em;
+    margin: 1em;
+    text-align: left;
+    width: 90%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid #272559;
+}
+
+.card-prodotto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 5px 10px 0 #b2bec3;
+    transition: 0.3s;
+    max-width: 760px;
+}
+
+.card-prodotto #container-text{
+    margin-left: 20px;
+}
+
+.card-prodotto img{
+    width: 30%;
+    max-width: 400px;
+    min-width: 80px;
+}
+
+#container-riepilogo {
+    margin: 1em;
+    width: 50%;
+}
+
+#container-riepilogo p{
+    font-size: 1.4em;
+}
+
+#empty-message {
+    margin: 50px auto auto;
+    width: 80%;
+    max-width: 400px;
+}
+
+#empty-message h3{
+    color: #272559;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .card-ordine, #container-riepilogo {
+        width: 95%;
+    }
+
+}

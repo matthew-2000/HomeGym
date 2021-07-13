@@ -92,7 +92,6 @@
         <label for="telefonoId" >Numero di telefono </label>
         <input type="text" name="telefono" id="telefonoId" value="${utente.numero}"><br>
 
-        <button type="button" id="modificaButton">Modifica Account</button>
         <div id="bottoni2">
           <button type="button" id="annulla">Annulla</button>
           <input type="submit" value="Salva Modifiche" id="salvaModifiche">

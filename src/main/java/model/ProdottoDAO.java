@@ -8,7 +8,7 @@ public class ProdottoDAO {
 
     public static Prodotto doRetrieveById(int id){
         try(Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM  prodotto WHERE id=?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM prodotto WHERE id=?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
