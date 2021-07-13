@@ -45,7 +45,7 @@
                 <p>Prezzo totale: <span style="font-weight: bold "> <%=carrello.getPrezzoTotale()%>€</span></p>
                 <c:choose>
                     <c:when test="${sessionScope.isLogged}">
-                        <form action="CarrelloServlet" method="post">
+                        <form action="EffettuaOrdineServlet" method="post">
                             <button>Procedi all'acquisto</button>
                         </form>
                     </c:when>

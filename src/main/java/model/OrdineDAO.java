@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class OrdineDAO {
@@ -35,6 +36,35 @@ public class OrdineDAO {
       return null;
     }catch (SQLException ex){
       throw new RuntimeException(ex);
+    }
+  }
+
+  public static void doSave(Carrello carrello, int idUtente){
+    try (Connection con = ConPool.getConnection()) {
+      PreparedStatement ps = con.prepareStatement(
+          "INSERT INTO ordine (dataOrdine, idUtente) VALUES (curdate(), ?)", Statement.RETURN_GENERATED_KEYS);
+      ps.setInt(1, idUtente);
+      if (ps.executeUpdate() != 1) {
+        throw new RuntimeException("INSERT error.");
+      }
+
+      ResultSet rs = ps.getGeneratedKeys();
+      if (rs.next()) {
+        for (ProdottoCarrello prodottoCarrello: carrello.getProdotti()) {
+          PreparedStatement ps2 = con.prepareStatement(
+              "INSERT INTO ordineProdotto (quantita, idOrdine, idProdotto) VALUES (?, ?, ?)");
+          ps2.setInt(1, prodottoCarrello.getQuantita());
+          ps2.setInt(2, rs.getInt(1));
+          ps2.setInt(3, prodottoCarrello.getProdotto().getId());
+          if (ps2.executeUpdate() != 1) {
+            throw new RuntimeException("INSERT error.");
+          }
+        }
+
+      }
+
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     }
   }
 
