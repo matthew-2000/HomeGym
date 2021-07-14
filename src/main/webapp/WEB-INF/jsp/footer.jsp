@@ -30,7 +30,7 @@
         <div class="footer-col">
           <h4>Account</h4>
           <ul>
-            <li><a href="">Ordini</a></li>
+            <li><a href="${pageContext.request.contextPath}/OrdiniServlet">Ordini</a></li>
             <li><a href="${pageContext.request.contextPath}/ListaDesideriServlet">Lista desideri</a></li>
           </ul>
         </div>

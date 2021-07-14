@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./css/myaccount.css" type="text/css">
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/myAccount.js"></script>
+    <script type="application/javascript" src="./scripts/validation.js"></script>
 </head>
 <body>
 
@@ -78,7 +79,7 @@
         <div id="box-myaccount">
             <img src="./images/icons/exit.png" id="exit">
             <h1 id="title-myaccount">Il Mio Account</h1>
-            <form id="MyAccountForm" action="MyAccountServlet" method="post">
+            <form id="MyAccountForm" action="MyAccountServlet" method="post" onsubmit="return registrazioneValidate()">
                 <input type="hidden" name="id" value="${utente.id}">
                 <input type="hidden" name="email" value="${utente.email}">
                 <input type="hidden" name="password" value="${utente.passwordHash}">
@@ -89,8 +90,8 @@
                 <label for="cognomeId" >Cognome </label>
                 <input type="text" name="cognome" id="cognomeId" value="${utente.cognome}"><br>
 
-                <label for="indirizzoId" >Indirizzo </label>
-                <input type="text" name="indirizzo" id="indirizzoId" value="${utente.via}"><br>
+                <label for="viaId" >Indirizzo </label>
+                <input type="text" name="indirizzo" id="viaId" value="${utente.via}"><br>
 
                 <label for="capId" >CAP </label>
                 <input type="text" name="cap" id="capId" value="${utente.cap}"><br>
@@ -98,8 +99,8 @@
                 <label for="paeseId" >Paese </label>
                 <input type="text" name="paese" id="paeseId" value="${utente.paese}"><br>
 
-                <label for="telefonoId" >Numero di telefono </label>
-                <input type="text" name="telefono" id="telefonoId" value="${utente.numero}"><br>
+                <label for="numeroId" >Numero di telefono </label>
+                <input type="text" name="telefono" id="numeroId" value="${utente.numero}"><br>
 
                 <div id="bottoni2">
                     <button type="button" id="annulla">Annulla</button>
