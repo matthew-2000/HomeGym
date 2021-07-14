@@ -22,7 +22,12 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("utente", utente);
             session.setAttribute("isLogged", true);
 
-        }//inserire errore
+        } else {
+            String message = "Nessun utente trovato!";
+            request.setAttribute("message", message);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+            dispatcher.forward(request, response);
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");
         dispatcher.forward(request, response);

@@ -1,4 +1,4 @@
-package control;
+package control.Ordini;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

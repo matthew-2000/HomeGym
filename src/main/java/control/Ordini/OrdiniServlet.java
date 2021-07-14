@@ -1,4 +1,4 @@
-package control;
+package control.Ordini;
 
 import java.util.ArrayList;
 import javax.servlet.*;

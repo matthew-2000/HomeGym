@@ -15,17 +15,17 @@ public class ProdottoServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-      String idProdotto = request.getParameter("idProdotto");
+    String idProdotto = request.getParameter("idProdotto");
     System.out.println("ID PRODOTTO = " + idProdotto);
 
     int id = Integer.parseInt(idProdotto);
-      Prodotto p = ProdottoDAO.doRetrieveById(id);
-      p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+    Prodotto p = ProdottoDAO.doRetrieveById(id);
+    p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
 
-      request.setAttribute("prodotto", p);
+    request.setAttribute("prodotto", p);
 
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotto.jsp");
-      dispatcher.forward(request, response);
+    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotto.jsp");
+    dispatcher.forward(request, response);
 
   }
 

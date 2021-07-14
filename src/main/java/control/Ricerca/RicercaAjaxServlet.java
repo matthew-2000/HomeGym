@@ -1,4 +1,4 @@
-package control;
+package control.Ricerca;
 
 import java.util.List;
 import javax.servlet.*;
