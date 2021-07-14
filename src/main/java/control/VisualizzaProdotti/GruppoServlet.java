@@ -1,4 +1,4 @@
-package control;
+package control.VisualizzaProdotti;
 
 import model.Gruppo;
 import model.GruppoDAO;

@@ -1,4 +1,4 @@
-package control;
+package control.Utente;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,6 +13,7 @@ public class LogoutServlet extends HttpServlet {
         session.removeAttribute("utente");
         session.removeAttribute("idProdottiCarrello");
         session.removeAttribute("prodottiCarrello");
+        session.removeAttribute("carrello");
         session.setAttribute("isLogged", false);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");

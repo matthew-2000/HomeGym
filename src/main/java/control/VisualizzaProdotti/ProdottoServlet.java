@@ -1,4 +1,4 @@
-package control;
+package control.VisualizzaProdotti;
 
 import model.ImmaginiProdottiDAO;
 import model.Prodotto;
