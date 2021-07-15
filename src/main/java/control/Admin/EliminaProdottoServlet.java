@@ -12,15 +12,15 @@ import java.io.IOException;
 public class EliminaProdottoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
         ProdottoDAO.doDelete(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/ModProdottiServlet");
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

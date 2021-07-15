@@ -29,7 +29,7 @@
         </div>
 
         <div id="aggiungi-categoria">
-            <form action="AggiungiCategoriaServlet" method="get">
+            <form action="AggiungiCategoriaServlet" method="post">
                 <p>Nome: </p>
                 <input type="text" name="nomeCategoria" id="nomeId"><br>
 
@@ -79,7 +79,7 @@
                         <td>${cat.nome}</td>
                         <td>${cat.descrizione}</td>
                         <td>
-                            <form action="EliminaCategoriaServlet" method="get">
+                            <form action="EliminaCategoriaServlet" method="post">
                                 <input type="hidden" value="${cat.id}" name="id">
                                 <button>-></button>
                             </form>

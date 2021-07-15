@@ -12,7 +12,11 @@ import java.io.IOException;
 public class AggiungiCategoriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      /*  doPost(request, response);*/
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nomeCategoria");
         String descrizione = request.getParameter("descrizioneCategoria");
 
@@ -24,10 +28,5 @@ public class AggiungiCategoriaServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/ModCategorieServlet");
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

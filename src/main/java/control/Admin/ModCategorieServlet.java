@@ -13,19 +13,16 @@ import java.util.List;
 public class ModCategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Categoria> cat = CategoriaDAO.doRetrieveAll();
-        HttpSession session = request.getSession();
-
-        session.setAttribute("cat", cat);
-
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminCategorie.jsp");
-        dispatcher.forward(request, response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Categoria> cat = CategoriaDAO.doRetrieveAll();
 
+        request.setAttribute("cat", cat);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminCategorie.jsp");
+        dispatcher.forward(request, response);
     }
 }

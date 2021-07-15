@@ -18,7 +18,7 @@ public class IndexServlet extends HttpServlet {
         List<Prodotto> prodottiMigliori = new ArrayList<>();
         List<String> immaginiProdotti;
         for (Prodotto p : listaProdotti){
-            if (p.getId() < 10){ //TODO: DA CAMBIARE
+            if (p.getId() < 10){
                 immaginiProdotti = ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId());
                 p.setImmagini(immaginiProdotti);
                 prodottiMigliori.add(p);
@@ -31,7 +31,6 @@ public class IndexServlet extends HttpServlet {
         synchronized (session){
             if (session.isNew()){
                 session.setAttribute("isLogged", false);
-                session.setAttribute("prodotti", listaProdotti);
             }
         }
 

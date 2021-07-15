@@ -24,19 +24,29 @@ public class ListaDesideriServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
+      String address;
+
       HttpSession session = request.getSession();
       Utente u = (Utente) session.getAttribute("utente");
-      List<Integer> listaIdProdotti = UtenteDAO.doRetrieveIdListaDesideriById(u.getId());
-      List<Prodotto> listaDesideri = new ArrayList<>();
-      for (int id : listaIdProdotti) {
-          listaDesideri.add(ProdottoDAO.doRetrieveById(id));
-      }
+      if (u == null) {
+        address = "/LogServlet";
+      } else {
 
-      for (Prodotto p : listaDesideri) {
-        p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+        List<Integer> listaIdProdotti = UtenteDAO.doRetrieveIdListaDesideriById(u.getId());
+        List<Prodotto> listaDesideri = new ArrayList<>();
+        for (int id : listaIdProdotti) {
+          listaDesideri.add(ProdottoDAO.doRetrieveById(id));
+        }
+
+        for (Prodotto p : listaDesideri) {
+          p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+        }
+
+        request.setAttribute("desideri", listaDesideri);
+        address = "WEB-INF/jsp/listaDesideri.jsp";
+
       }
-      request.setAttribute("desideri", listaDesideri);
-      RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/listaDesideri.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher(address);
       dispatcher.forward(request, response);
 
   }

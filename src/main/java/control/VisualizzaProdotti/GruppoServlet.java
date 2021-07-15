@@ -25,17 +25,27 @@ public class GruppoServlet extends HttpServlet {
         int idGruppo = Integer.parseInt(request.getParameter("gruppoId"));
 
         List<Prodotto> listaProdotti = ProdottoDAO.doRetrieveByIdGruppo(idGruppo);
+        String address;
 
-        Gruppo g = GruppoDAO.doRetrieveById(idGruppo);
+        if (listaProdotti != null) {
+            Gruppo g = GruppoDAO.doRetrieveById(idGruppo);
 
-        for (Prodotto p : listaProdotti) {
-            p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+            for (Prodotto p : listaProdotti) {
+                p.setImmagini(ImmaginiProdottiDAO.doRetrieveByIdProduct(p.getId()));
+            }
+
+            request.setAttribute("prodotti", listaProdotti);
+            request.setAttribute("gruppo", g);
+
+            address = "/WEB-INF/jsp/prodotti.jsp";
+        } else {
+
+            request.setAttribute("message", "Non ci sono ancora prodotti nel gruppo selezionato! Stiamo lavorando per caricarli :) ");
+            address = "/WEB-INF/jsp/error.jsp";
+
         }
 
-        request.setAttribute("prodotti", listaProdotti);
-        request.setAttribute("gruppo", g);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/prodotti.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }
 }

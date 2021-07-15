@@ -15,17 +15,16 @@ import java.util.List;
 public class ModProdottiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Prodotto> prodotti = ProdottoDAO.doRetrieveAll();
-        HttpSession session = request.getSession();
-
-        session.setAttribute("prodotti", prodotti);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminProdotti.jsp");
-        dispatcher.forward(request, response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Prodotto> prodotti = ProdottoDAO.doRetrieveAll();
 
+        request.setAttribute("prodotti", prodotti);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminProdotti.jsp");
+        dispatcher.forward(request, response);
     }
 }

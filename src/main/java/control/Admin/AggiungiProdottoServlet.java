@@ -12,8 +12,13 @@ import java.util.List;
 public class AggiungiProdottoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean b = false;
-        String address = "";
+        String address;
 
         String nome = request.getParameter("nomeProdotto");
         double prezzo = Double.parseDouble(request.getParameter("prezzoProdotto"));
@@ -24,8 +29,10 @@ public class AggiungiProdottoServlet extends HttpServlet {
 
         List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
         for(Gruppo g : gruppi) {
-            if(g.getId() == idGruppo)
+            if (g.getId() == idGruppo) {
                 b = true;
+                break;
+            }
         }
         if(!b) {
             String message = "Id gruppo Sbagliato";
@@ -46,10 +53,5 @@ public class AggiungiProdottoServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

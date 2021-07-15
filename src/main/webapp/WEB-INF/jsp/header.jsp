@@ -54,7 +54,7 @@
             <img id="logo" src="./images/logo.png">
         </a>
         <div id="search-bar">
-            <form action="RicercaServlet" method="post">
+            <form action="RicercaServlet" method="get">
                 <input autocomplete="off" type="text" list="ricerca-list" placeholder="Cerca prodotti..." onkeyup="ricerca(this.value)" name="search" value="<c:out value="${param.search}" />">
                 <datalist id="ricerca-list"></datalist>
                 <button type="submit">Vai</button>

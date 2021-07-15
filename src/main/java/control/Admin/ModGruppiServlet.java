@@ -15,19 +15,16 @@ import java.util.List;
 public class ModGruppiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
-        HttpSession session = request.getSession();
-
-        session.setAttribute("gruppi", gruppi);
-
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminGruppi.jsp");
-        dispatcher.forward(request, response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
 
+        request.setAttribute("gruppi", gruppi);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/adminGruppi.jsp");
+        dispatcher.forward(request, response);
     }
 }

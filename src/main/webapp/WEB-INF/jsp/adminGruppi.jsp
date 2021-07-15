@@ -27,7 +27,7 @@
     </div>
 
     <div id="aggiungi-gruppo">
-      <form action="AggiungiGruppoServlet" method="get">
+      <form action="AggiungiGruppoServlet" method="post">
         <p>Nome: </p>
         <input type="text" name="nomeGruppo" id="nomeId"><br>
 
@@ -77,7 +77,7 @@
             <td>${gruppo.nome}</td>
             <td>${gruppo.idCategoria}</td>
             <td>
-              <form action="EliminaGruppoServlet" method="get">
+              <form action="EliminaGruppoServlet" method="post">
                 <input type="hidden" value="${gruppo.id}" name="id">
                 <button>-></button>
               </form>

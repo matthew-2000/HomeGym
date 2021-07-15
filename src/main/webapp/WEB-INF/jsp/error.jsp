@@ -9,15 +9,16 @@
 <html>
 <head>
     <title>HomeGym - Errore</title>
+    <link rel="stylesheet" type="text/css" href="./css/error.css">
 </head>
 <body>
     <%@include file="header.jsp"%>
 
     <%String message = (String) request.getAttribute("message");%>
 
-    <div class="">
+    <div id="empty-message">
         <h2>Attenzione, errore!</h2>
-        <h4><%=message%></h4>
+        <h2><%=message%></h2>
     </div>
 
     <%@include file="footer.jsp"%>

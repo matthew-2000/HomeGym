@@ -15,8 +15,13 @@ import java.util.List;
 public class AggiungiGruppoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean b = false;
-        String address = "";
+        String address;
         String nome = request.getParameter("nomeGruppo");
         int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
         List<Categoria> categorie = CategoriaDAO.doRetrieveAll();
@@ -41,10 +46,5 @@ public class AggiungiGruppoServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

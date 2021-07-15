@@ -12,6 +12,11 @@ import java.io.IOException;
 public class ModificaCatServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String descrizione = request.getParameter("descrizione");
@@ -32,10 +37,5 @@ public class ModificaCatServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/ModCategorieServlet");
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

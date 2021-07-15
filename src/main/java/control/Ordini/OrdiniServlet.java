@@ -23,18 +23,18 @@ public class OrdiniServlet extends HttpServlet {
       throws ServletException, IOException {
     HttpSession session = request.getSession();
     Utente u = (Utente) session.getAttribute("utente");
-    ArrayList<Ordine> ordiniList = OrdineDAO.doRetrieveAllByIdUtente(u.getId());
+    String address = "";
 
-    for (Ordine o : ordiniList) {
-      System.out.println(o.getDataOrdine());
-      for (ProdottoCarrello p : o.getProdotti()) {
-        System.out.println(p.getQuantita());
-        System.out.println(p.getProdotto().getNome());
-      }
+    if (u == null) {
+      address = "/LogServlet";
+    } else {
+      ArrayList<Ordine> ordiniList = OrdineDAO.doRetrieveAllByIdUtente(u.getId());
+
+      request.setAttribute("ordini", ordiniList);
+      address = "WEB-INF/jsp/ordini.jsp";
     }
 
-    request.setAttribute("ordini", ordiniList);
-    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/ordini.jsp");
+    RequestDispatcher dispatcher = request.getRequestDispatcher(address);
     dispatcher.forward(request, response);
 
   }

@@ -20,8 +20,7 @@ public class ModificaCategoriaServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         Categoria cat = CategoriaDAO.doRetrieveById(id);
-        HttpSession session = request.getSession();
-        session.setAttribute("categoria", cat);
+        request.setAttribute("categoria", cat);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaCategoria.jsp");
         dispatcher.forward(request, response);

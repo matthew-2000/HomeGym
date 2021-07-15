@@ -14,6 +14,7 @@ public class RicercaAjaxServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
       JSONArray prodJson = new JSONArray();
       String query = request.getParameter("search");
       if (query != null) {
@@ -24,6 +25,7 @@ public class RicercaAjaxServlet extends HttpServlet {
       }
       response.setContentType("application/json");
       response.getWriter().append(prodJson.toString());
+
   }
 
   @Override

@@ -27,7 +27,7 @@
         </div>
 
         <div id="aggiungi-prodotto">
-            <form action="AggiungiProdottoServlet" method="get">
+            <form action="AggiungiProdottoServlet" method="post">
                 <p>Nome: </p>
                 <input type="text" name="nomeProdotto" id="nomeId"><br>
 
@@ -102,7 +102,7 @@
                         <td>${prodotto.voto}</td>
                         <td>${prodotto.idGruppo}</td>
                         <td>
-                            <form action="EliminaProdottoServlet" method="get">
+                            <form action="EliminaProdottoServlet" method="post">
                                 <input type="hidden" value="${prodotto.id}" name="id">
                                 <button>-></button>
                             </form>

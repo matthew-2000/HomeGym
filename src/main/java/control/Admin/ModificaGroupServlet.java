@@ -15,6 +15,11 @@ import java.util.List;
 public class ModificaGroupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         boolean b = false;
         String address = "";
         int id = Integer.parseInt(request.getParameter("id"));
@@ -30,7 +35,7 @@ public class ModificaGroupServlet extends HttpServlet {
             }
         }
         if(!b) {
-            String message = "Id categoria Sbagliato";
+            String message = "Id categoria non valido!";
             request.setAttribute("message", message);
             address = "/WEB-INF/jsp/error.jsp";
         }
@@ -51,10 +56,5 @@ public class ModificaGroupServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

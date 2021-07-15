@@ -22,8 +22,7 @@ public class ModificaGruppoServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         Gruppo group = GruppoDAO.doRetrieveById(id);
-        HttpSession session = request.getSession();
-        session.setAttribute("gruppo", group);
+        request.setAttribute("gruppo", group);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaGruppo.jsp");
         dispatcher.forward(request, response);

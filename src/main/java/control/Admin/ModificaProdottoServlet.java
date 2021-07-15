@@ -22,8 +22,7 @@ public class ModificaProdottoServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         Prodotto product = ProdottoDAO.doRetrieveById(id);
-        HttpSession session = request.getSession();
-        session.setAttribute("prodotto", product);
+        request.setAttribute("prodotto", product);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaProdotto.jsp");
         dispatcher.forward(request, response);
