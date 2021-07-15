@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <%@include file="WEB-INF/jsp/header.jsp"%>
+    <%@include file="header.jsp"%>
 
     <br>
 
@@ -53,7 +53,7 @@
         </div>
     </section>
 
-    <%@include file="WEB-INF/jsp/footer.jsp"%>
+    <%@include file="footer.jsp"%>
 
 </body>
 </html>

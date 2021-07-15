@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "IndexServlet", value = "/IndexServlet")
+@WebServlet(name = "IndexServlet", urlPatterns = {"", "/IndexServlet"}, loadOnStartup = 1)
 public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
