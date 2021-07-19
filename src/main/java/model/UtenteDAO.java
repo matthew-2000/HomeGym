@@ -126,7 +126,7 @@ public class UtenteDAO {
             ps.setString(6, utente.getNumero());
             ps.setInt(7, id);
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                throw new RuntimeException("UPDATE error.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

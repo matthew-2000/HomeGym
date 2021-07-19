@@ -128,7 +128,7 @@ public class ProdottoDAO {
             ps.setInt(6, prodotto.getIdGruppo());
             ps.setInt(7, prodotto.getId());
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                throw new RuntimeException("UPDATE error.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

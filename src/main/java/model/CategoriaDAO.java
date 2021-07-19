@@ -86,7 +86,7 @@ public class CategoriaDAO {
             ps.setString(2, categoria.getDescrizione());
             ps.setInt(3, categoria.getId());
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                throw new RuntimeException("UPDATE error.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

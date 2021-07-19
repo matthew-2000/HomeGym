@@ -108,7 +108,7 @@ public class GruppoDAO {
             ps.setInt(2, gruppo.getIdCategoria());
             ps.setInt(3, gruppo.getId());
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                throw new RuntimeException("UPDATE error.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
