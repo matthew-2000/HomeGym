@@ -107,8 +107,6 @@ public class SalvaModificheServlet extends HttpServlet {
                     p.setNome(nomeProdotto);
                     p.setPrezzo(prezzo);
                     p.setDescrizione(descrizioneProdotto);
-                    p.setQuantita(quantita);
-                    p.setVoto(voto);
                     p.setIdGruppo(idGroup);
                     HttpSession sessionProduct = request.getSession();
                     Prodotto product = (Prodotto) sessionProduct.getAttribute("prodotto");

@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,8 +9,6 @@ public class Prodotto {
     private String nome;
     private double prezzo;
     private String descrizione;
-    private int quantita;
-    private double voto;
     private int idGruppo;
     private List<String> immagini;
 
@@ -45,22 +42,6 @@ public class Prodotto {
 
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
-    }
-
-    public int getQuantita() {
-        return quantita;
-    }
-
-    public void setQuantita(int quantita) {
-        this.quantita = quantita;
-    }
-
-    public double getVoto() {
-        return voto;
-    }
-
-    public void setVoto(double voto) {
-        this.voto = voto;
     }
 
     public int getIdGruppo() {
@@ -97,7 +78,6 @@ public class Prodotto {
         }
         Prodotto prodotto = (Prodotto) o;
         return id == prodotto.id && Double.compare(prodotto.prezzo, prezzo) == 0 &&
-            quantita == prodotto.quantita && Double.compare(prodotto.voto, voto) == 0 &&
             idGruppo == prodotto.idGruppo && Objects.equals(nome, prodotto.nome) &&
             Objects.equals(descrizione, prodotto.descrizione) &&
             Objects.equals(immagini, prodotto.immagini);

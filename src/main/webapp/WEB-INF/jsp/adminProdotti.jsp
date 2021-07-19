@@ -37,12 +37,6 @@
                 <p>Descrizione: </p>
                 <textarea name="descrizioneProdotto" id="descrizioneId"></textarea> <br>
 
-                <p>Quantità: </p>
-                <input type="text" name="quantitaProdotto" id="quantitaId"><br>
-
-                <p>Voto: </p>
-                <input type="text" name="votoProdotto" id="votoId"><br>
-
                 <p>ID Gruppo</p>
                 <input type="text" name="idGruppo" id="gruppoId"><br>
 
@@ -57,7 +51,6 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Prezzo</th>
-                    <th>Quantità</th>
                     <th>ID Gruppo</th>
                 </tr>
 
@@ -66,7 +59,6 @@
                         <td>${prodotto.id}</td>
                         <td>${prodotto.nome}</td>
                         <td>${prodotto.prezzo}€</td>
-                        <td>${prodotto.quantita}</td>
                         <td>${prodotto.idGruppo}</td>
                         <td>
                             <form action="ModificaProdottoServlet" method="post">
@@ -86,9 +78,6 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Prezzo</th>
-                    <th>Descrizione</th>
-                    <th>Quantità</th>
-                    <th>Voto</th>
                     <th>ID Gruppo</th>
                 </tr>
 
@@ -97,9 +86,6 @@
                         <td>${prodotto.id}</td>
                         <td>${prodotto.nome}</td>
                         <td>${prodotto.prezzo}€</td>
-                        <td>${prodotto.descrizione}</td>
-                        <td>${prodotto.quantita}</td>
-                        <td>${prodotto.voto}</td>
                         <td>${prodotto.idGruppo}</td>
                         <td>
                             <form action="ModificaProdottoServlet" method="post">

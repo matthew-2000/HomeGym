@@ -19,7 +19,6 @@
     <%@include file="header.jsp"%>
 
     <%int count = 1;%>
-    <%List<Gruppo> listaGruppi = GruppoDAO.doRetrieveAll();%>
 
     <h1 id="title">Lista categorie</h1>
 
@@ -36,7 +35,7 @@
                                 <ul>
                                     <c:forEach items="${categoria.listaGruppi}" var="gruppo">
                                         <li>
-                                            <form action="GruppoServlet" method="post">
+                                            <form action="GruppoServlet" method="get">
                                                 <input type="hidden" name="categoriaId" value="${categoria.id}">
                                                 <input type="hidden" name="gruppoId" value="${gruppo.id}">
                                                 <input id="gruppo-button" type="submit" value="${gruppo.nome}">
@@ -53,7 +52,6 @@
         </div>
 
     </div>
-
 
     <%@include file="footer.jsp"%>
 

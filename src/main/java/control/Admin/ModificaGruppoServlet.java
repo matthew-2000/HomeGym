@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import model.RequestValidator;
 
 @WebServlet(name = "ModificaGruppoServlet", value = "/ModificaGruppoServlet")
 public class ModificaGruppoServlet extends HttpServlet {
@@ -21,61 +22,89 @@ public class ModificaGruppoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String address = "";
         String azione = request.getParameter("azione");
 
-        switch (azione) {
+        if (azione != null) {
+            String address = "";
+            RequestValidator requestValidator = new RequestValidator(request);
 
-            case "aggiungi" :
-                boolean b = false;
-                String nome = request.getParameter("nomeGruppo");
-                int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
-                List<Categoria> categorie = CategoriaDAO.doRetrieveAll();
-                for(Categoria c : categorie) {
-                    if (c.getId() == idCategoria) {
-                        b = true;
-                        break;
+            switch (azione) {
+
+                case "aggiungi" :
+                    boolean b = false;
+                    String nome = request.getParameter("nomeGruppo");
+                    if (nome != null) {
+                        boolean idResult = requestValidator.assertInt("idCategoria", "Id non valido!");
+                        if (idResult) {
+                            int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
+                            List<Categoria> categorie = CategoriaDAO.doRetrieveAll();
+                            for(Categoria c : categorie) {
+                                if (c.getId() == idCategoria) {
+                                    b = true;
+                                    break;
+                                }
+                            }
+                            if(!b) {
+                                String message = "Id categoria Sbagliato";
+                                request.setAttribute("message", message);
+                                address = "/WEB-INF/jsp/error.jsp";
+                            }
+                            else {
+                                Gruppo g = new Gruppo();
+                                g.setNome(nome);
+                                g.setIdCategoria(idCategoria);
+                                GruppoDAO.doSave(g);
+                                address = "/ModGruppiServlet";
+                            }
+                        } else {
+                            List<String> errors = requestValidator.getErrors();
+                            request.setAttribute("errors", errors);
+                            address = "/WEB-INF/jsp/error.jsp";
+                        }
                     }
-                }
-                if(!b) {
-                    String message = "Id categoria Sbagliato";
-                    request.setAttribute("message", message);
+
+                    break;
+
+                case "modifica" :
+                    boolean idResult = requestValidator.assertInt("id", "Id non valido!");
+                    if (idResult) {
+                        int id = Integer.parseInt(request.getParameter("id"));
+                        Gruppo group = GruppoDAO.doRetrieveById(id);
+                        request.setAttribute("gruppo", group);
+                        address = "/WEB-INF/jsp/modificaGruppo.jsp";
+                    } else {
+                        List<String> errors = requestValidator.getErrors();
+                        request.setAttribute("errors", errors);
+                        address = "/WEB-INF/jsp/error.jsp";
+                    }
+
+                    break;
+
+                case "elimina" :
+                    boolean idResult2 = requestValidator.assertInt("id", "Id non valido!");
+                    if (idResult2) {
+                        int idDelete = Integer.parseInt(request.getParameter("id"));
+                        GruppoDAO.doDelete(idDelete);
+                        address = "/ModGruppiServlet";
+                    } else {
+                        List<String> errors = requestValidator.getErrors();
+                        request.setAttribute("errors", errors);
+                        address = "/WEB-INF/jsp/error.jsp";
+                    }
+
+                    break;
+
+                default:
+                    String error = "Errore durante il caricamento della pagina";
+                    request.setAttribute("message", error);
                     address = "/WEB-INF/jsp/error.jsp";
-                }
-                else {
-                    Gruppo g = new Gruppo();
-                    g.setNome(nome);
-                    g.setIdCategoria(idCategoria);
-                    GruppoDAO.doSave(g);
-                    address = "/ModGruppiServlet";
-                }
-                break;
+                    break;
+            }
 
-            case "modifica" :
-                int id = Integer.parseInt(request.getParameter("id"));
-                Gruppo group = GruppoDAO.doRetrieveById(id);
-                request.setAttribute("gruppo", group);
-                address = "/WEB-INF/jsp/modificaGruppo.jsp";
-                break;
-
-            case "elimina" :
-                int idDelete = Integer.parseInt(request.getParameter("id"));
-                GruppoDAO.doDelete(idDelete);
-                address = "/ModGruppiServlet";
-                break;
-
-            default:
-                String error = "Errore durante il caricamento della pagina";
-                request.setAttribute("message", error);
-                address = "/WEB-INF/jsp/error.jsp";
-                break;
+            RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+            dispatcher.forward(request, response);
         }
 
 
-
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-        dispatcher.forward(request, response);
     }
 }
