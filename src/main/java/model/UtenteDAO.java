@@ -116,7 +116,7 @@ public class UtenteDAO {
     public static void doUpdate(Utente utente, int id){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "UPDATE utente SET nome = ?, cognome = ?, via = ?, cap = ?, paese = ?, numero = ? WHERE id=" + id,
+                    "UPDATE utente SET nome = ?, cognome = ?, via = ?, cap = ?, paese = ?, numero = ? WHERE id=?",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, utente.getNome());
             ps.setString(2, utente.getCognome());
@@ -124,6 +124,7 @@ public class UtenteDAO {
             ps.setString(4, utente.getCap());
             ps.setString(5, utente.getPaese());
             ps.setString(6, utente.getNumero());
+            ps.setInt(7, id);
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }

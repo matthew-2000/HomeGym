@@ -28,10 +28,8 @@ public class IndexServlet extends HttpServlet {
 
         request.setAttribute("venduti", prodottiMigliori);
         HttpSession session = request.getSession();
-        synchronized (session){
-            if (session.isNew()){
-                session.setAttribute("isLogged", false);
-            }
+        if (session.isNew()){
+            session.setAttribute("isLogged", false);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");

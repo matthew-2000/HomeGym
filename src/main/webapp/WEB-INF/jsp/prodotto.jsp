@@ -45,9 +45,8 @@
                     <input type="hidden" value="${prodotto.id}" name="idProdotto">
                     <h1>${prodotto.nome}</h1>
                     <p>Prezzo: ${prodotto.prezzo}</p>
-                    <p>Disponibilità: ${prodotto.quantita}</p>
                     <label for="quantita" style="font-size: 1.3em; margin-right: 5px">Quantità:</label>
-                    <input style="font-size: 1.3em" type="number" id="quantita" name="quantita" min="1" max="${prodotto.quantita}" value="1"><br>
+                    <input style="font-size: 1.3em" type="number" id="quantita" name="quantita" min="1" max="20" value="1"><br>
                     <button type="submit">Aggiungi al carrello</button>
                 </form>
                 <form action="AggiungiListaDesideriServlet" method="post">
