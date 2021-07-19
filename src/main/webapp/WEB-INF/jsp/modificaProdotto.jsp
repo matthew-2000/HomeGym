@@ -16,7 +16,7 @@
 
   <div class="card">
     <h1 class="title">Qui puoi modificare il Prodotto ${prodotto.nome}</h1>
-    <form action="ModificaProductServlet" method="get">
+    <form action="SalvaModificheServlet" method="get">
       <input type="hidden" name="id" value="${prodotto.id}">
 
       <label for="nomeId">Nome: </label><br>
@@ -37,7 +37,7 @@
       <label for="gruppoId">ID Gruppo</label><br>
       <input type="text" name="idGruppo" id="gruppoId" value="${prodotto.idGruppo}"><br>
 
-      <button type="submit">Modifica</button>
+      <button type="submit" name="azione" value="prodotto">Modifica</button>
     </form>
     <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModProdottiServlet'">Annulla</button>
   </div>

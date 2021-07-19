@@ -29,13 +29,13 @@
         </div>
 
         <div id="aggiungi-categoria">
-            <form action="AggiungiCategoriaServlet" method="post">
+            <form action="ModificaCategoriaServlet" method="post">
                 <p>Nome: </p>
                 <input type="text" name="nomeCategoria" id="nomeId"><br>
 
                 <p>Descrizione: </p>
                 <textarea name="descrizioneCategoria" id="descrizioneId"></textarea> <br>
-                <button class="confermaModifiche" type="submit">Conferma</button>
+                <button class="confermaModifiche" type="submit" name="azione" value="aggiungi">Conferma</button>
             </form>
             <button class="annullaModifiche">Annulla</button>
         </div>
@@ -56,7 +56,7 @@
                         <td>
                             <form action="ModificaCategoriaServlet" method="post">
                                 <input type="hidden" value="${cat.id}" name="id">
-                                <button style="min-width: 60px">-></button>
+                                <button style="min-width: 60px" name="azione" value="modifica">-></button>
                             </form>
                         </td>
                     </tr>
@@ -79,9 +79,9 @@
                         <td>${cat.nome}</td>
                         <td>${cat.descrizione}</td>
                         <td>
-                            <form action="EliminaCategoriaServlet" method="post">
+                            <form action="ModificaCategoriaServlet" method="post">
                                 <input type="hidden" value="${cat.id}" name="id">
-                                <button>-></button>
+                                <button name="azione" value="elimina">-></button>
                             </form>
                         </td>
                     </tr>

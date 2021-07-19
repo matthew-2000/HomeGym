@@ -27,13 +27,13 @@
     </div>
 
     <div id="aggiungi-gruppo">
-      <form action="AggiungiGruppoServlet" method="post">
+      <form action="ModificaGruppoServlet" method="post">
         <p>Nome: </p>
         <input type="text" name="nomeGruppo" id="nomeId"><br>
 
         <p>ID Categoria: </p>
         <input type="text" name="idCategoria" id="categoriaId"><br>
-        <button class="confermaModifiche" type="submit">Conferma</button>
+        <button class="confermaModifiche" type="submit" name="azione" value="aggiungi">Conferma</button>
       </form>
       <button class="annullaModifiche">Annulla</button>
     </div>
@@ -54,7 +54,7 @@
             <td>
               <form action="ModificaGruppoServlet" method="post">
                 <input type="hidden" value="${gruppo.id}" name="id">
-                <button>-></button>
+                <button name="azione" value="modifica">-></button>
               </form>
             </td>
           </tr>
@@ -77,9 +77,9 @@
             <td>${gruppo.nome}</td>
             <td>${gruppo.idCategoria}</td>
             <td>
-              <form action="EliminaGruppoServlet" method="post">
+              <form action="ModificaGruppoServlet" method="post">
                 <input type="hidden" value="${gruppo.id}" name="id">
-                <button>-></button>
+                <button name="azione" value="elimina">-></button>
               </form>
             </td>
           </tr>

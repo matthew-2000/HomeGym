@@ -16,7 +16,7 @@
 
     <div class="card">
         <h1 class="title">Qui puoi modificare il Gruppo ${gruppo.nome}</h1>
-        <form action="ModificaGroupServlet" method="get">
+        <form action="SalvaModificheServlet" method="get">
             <input type="hidden" name="id" value="${gruppo.id}">
 
             <label for="nomeId">Nome: </label><br>
@@ -25,7 +25,7 @@
             <label for="categoriaId">ID Categoria: </label><br>
             <input type="text" name="idCategoria" id="categoriaId" value="${gruppo.idCategoria}"><br>
 
-            <button type="submit">Modifica</button>
+            <button type="submit" name="azione" value="gruppo">Modifica</button>
         </form>
         <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModGruppiServlet'">Annulla</button>
     </div>

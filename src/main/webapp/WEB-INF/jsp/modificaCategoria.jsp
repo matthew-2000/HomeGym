@@ -17,7 +17,7 @@
 
     <div class="card">
         <h1 class="title">Qui puoi modificare la Categoria ${categoria.nome}</h1>
-        <form action="ModificaCatServlet" method="get">
+        <form action="SalvaModificheServlet" method="post">
             <input type="hidden" name="id" value="${categoria.id}">
 
             <label for="nomeId">Nome: </label><br>
@@ -26,7 +26,7 @@
             <label for="descrizioneId">Descrizione: </label><br>
             <input type="text" name="descrizione" id="descrizioneId" value="${categoria.descrizione}"><br>
 
-            <button type="submit">Modifica</button>
+            <button type="submit" name="azione" value="categoria">Modifica</button>
         </form>
         <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModCategorieServlet'">Annulla</button>
     </div>

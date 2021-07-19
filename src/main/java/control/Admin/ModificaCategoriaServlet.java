@@ -17,12 +17,47 @@ public class ModificaCategoriaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String azione = request.getParameter("azione");
+        System.out.println(azione);
+        String address = "";
+        switch (azione){
 
-        Categoria cat = CategoriaDAO.doRetrieveById(id);
-        request.setAttribute("categoria", cat);
+            case "aggiungi" : //Aggiungi
+                String nome = request.getParameter("nomeCategoria");
+                String descrizione = request.getParameter("descrizioneCategoria");
+                Categoria categoria = new Categoria();
+                categoria.setNome(nome);
+                categoria.setDescrizione(descrizione);
+                CategoriaDAO.doSave(categoria);
+                address = "/ModCategorieServlet";
+                break;
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/modificaCategoria.jsp");
+            case "modifica" : //Modifica
+                int id = Integer.parseInt(request.getParameter("id"));
+                Categoria cat = CategoriaDAO.doRetrieveById(id);
+                request.setAttribute("categoria", cat);
+                address = "/WEB-INF/jsp/modificaCategoria.jsp";
+                break;
+
+            case "elimina" : //Elimina
+                int idDelete = Integer.parseInt(request.getParameter("id"));
+                CategoriaDAO.doDelete(idDelete);
+                address = "/ModCategorieServlet";
+                break;
+
+            default:
+                String error = "Errore durante il caricamento della pagina";
+                request.setAttribute("message", error);
+                address = "/WEB-INF/jsp/error.jsp";
+                break;
+        }
+
+
+
+
+
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
         dispatcher.forward(request, response);
     }
 }
