@@ -1,6 +1,6 @@
 
 function emailValidate(email) {
-    const emailRegEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegEx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const emailResult = emailRegEx.test(email);
 
     if (!emailResult) {

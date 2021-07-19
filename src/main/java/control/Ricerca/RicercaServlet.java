@@ -16,12 +16,20 @@ public class RicercaServlet extends HttpServlet {
       throws ServletException, IOException {
       String query = request.getParameter("search");
 
+      if (query == null) {
+        String message = "Non è stato inserito nessun parametro di ricerca!";
+        request.setAttribute("message", message);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+        dispatcher.forward(request, response);
+      }
+
       if (query.equals("")) {
         String message = "Non è stato inserito nessun parametro di ricerca!";
         request.setAttribute("message", message);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
         dispatcher.forward(request, response);
       }
+
       List<Prodotto> prodotti = ProdottoDAO.doRetrieveByNome(query + "*", 0, 10);
 
       for (Prodotto p : prodotti) {

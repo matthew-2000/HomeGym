@@ -22,14 +22,14 @@ public class EffettuaOrdineServlet extends HttpServlet {
 
       HttpSession session = request.getSession();
       Carrello carrello = (Carrello) session.getAttribute("carrello");
-      if(carrello == null) {
-          String message = "OPS! Errore ssconosciuto.";
+      Utente u = (Utente) session.getAttribute("utente");
+
+      if(carrello == null || u == null) {
+          String message = "OPS! Errore sconosciuto.";
           request.setAttribute("message", message);
           RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
           dispatcher.forward(request, response);
       }
-
-      Utente u = (Utente) session.getAttribute("utente");
 
       OrdineDAO.doSave(carrello, u.getId());
 

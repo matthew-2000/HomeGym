@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: jacop
   Date: 07/07/2021
@@ -14,11 +14,17 @@
 <body>
     <%@include file="header.jsp"%>
 
-    <%String message = (String) request.getAttribute("message");%>
-
+    <%
+        String message = (String) request.getAttribute("message");
+        if (message == null)
+            message = "";
+    %>
     <div id="empty-message">
         <h2>Attenzione, errore!</h2>
         <h2><%=message%></h2>
+        <c:forEach items="${errors}" var="error">
+            <h2>${error}</h2>
+        </c:forEach>
     </div>
 
     <%@include file="footer.jsp"%>

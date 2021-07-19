@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.ProdottoCarrello;
 import model.ProdottoDAO;
+import model.RequestValidator;
 
 @WebServlet(name = "AggiungiCarrelloServlet", value = "/AggiungiCarrelloServlet")
 public class AggiungiCarrelloServlet extends HttpServlet {
@@ -23,15 +24,15 @@ public class AggiungiCarrelloServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("idProdotto"));
-        String quantitaString = request.getParameter("quantita");
 
-        if (quantitaString.equals("")) {
-            String message = "Quantità prodotto non inserita!";
-            request.setAttribute("message", message);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
-            dispatcher.forward(request, response);
-        } else {
+        RequestValidator requestValidator = new RequestValidator(request);
+        boolean idResult = requestValidator.assertInt("idProdotto", "Id prodotto non valido");
+        boolean quantitaResult =  requestValidator.assertInt("quantita", "Quantità non inserita");
+
+        if (idResult && quantitaResult) {
+            int id = Integer.parseInt(request.getParameter("idProdotto"));
+            String quantitaString = request.getParameter("quantita");
+
             int quantita = Integer.parseInt(quantitaString);
 
             HttpSession session = request.getSession();
@@ -48,6 +49,14 @@ public class AggiungiCarrelloServlet extends HttpServlet {
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/CarrelloServlet");
             dispatcher.forward(request, response);
+
+        } else {
+
+            List<String> errors = requestValidator.getErrors();
+            request.setAttribute("errors", errors);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+            dispatcher.forward(request, response);
+
         }
 
     }

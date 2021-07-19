@@ -1,5 +1,8 @@
 package control.Utente;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.RequestValidator;
 import model.Utente;
 import model.UtenteDAO;
 
@@ -12,19 +15,35 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
 
-        Utente utente = UtenteDAO.doRetrieveByEmailPassword(email, password);
-        if(utente != null){
+    }
 
-            HttpSession session = request.getSession();
-            session.setAttribute("utente", utente);
-            session.setAttribute("isLogged", true);
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestValidator requestValidator = new RequestValidator(request);
+        boolean emailResult = requestValidator.assertEmail("email", "Email non valida!");
+        boolean passwordResult = requestValidator.assertPassword("password", "Password non valida!");
 
+        if (emailResult && passwordResult) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            Utente utente = UtenteDAO.doRetrieveByEmailPassword(email, password);
+            if(utente != null){
+
+                HttpSession session = request.getSession();
+                session.setAttribute("utente", utente);
+                session.setAttribute("isLogged", true);
+
+            } else {
+                String message = "Nessun utente trovato!";
+                request.setAttribute("message", message);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+                dispatcher.forward(request, response);
+            }
         } else {
-            String message = "Nessun utente trovato!";
-            request.setAttribute("message", message);
+            List<String> errors = requestValidator.getErrors();
+            request.setAttribute("errors", errors);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
             dispatcher.forward(request, response);
         }
@@ -33,8 +52,4 @@ public class LoginServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 }

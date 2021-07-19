@@ -1,5 +1,7 @@
 package control.Utente;
 
+import java.util.List;
+import model.RequestValidator;
 import model.Utente;
 import model.UtenteDAO;
 
@@ -17,37 +19,47 @@ public class RegistrazioneServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String nome = request.getParameter("nome");
-        String cognome = request.getParameter("cognome");
-        String via = request.getParameter("via");
-        String cap = request.getParameter("cap");
-        String paese = request.getParameter("paese");
-        String numero = request.getParameter("numero");
 
-        Utente utente = new Utente();
-        utente.setEmail(email);
-        utente.setPasswordHash(password);
-        utente.setNome(nome);
-        utente.setCognome(cognome);
-        utente.setVia(via);
-        utente.setCap(cap);
-        utente.setPaese(paese);
-        utente.setNumero(numero);
-        utente.setAdmin(false);
+        RequestValidator requestValidator = new RequestValidator(request);
+        boolean emailResult = requestValidator.assertEmail("email", "Email non valida");
+        boolean passwordResult = requestValidator.assertPassword("password", "Password non valida");
+        boolean capResult = requestValidator.assertInt("cap", "Cap non valido");
+        boolean numeroResult = requestValidator.assertInt("numero", "Numero non valido");
 
-        UtenteDAO.doSave(utente);
+        if (emailResult && passwordResult && capResult && numeroResult) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String nome = request.getParameter("nome");
+            String cognome = request.getParameter("cognome");
+            String via = request.getParameter("via");
+            String cap = request.getParameter("cap");
+            String paese = request.getParameter("paese");
+            String numero = request.getParameter("numero");
 
-       HttpSession session = request.getSession();
+            Utente utente = new Utente();
+            utente.setEmail(email);
+            utente.setPasswordHash(password);
+            utente.setNome(nome);
+            utente.setCognome(cognome);
+            utente.setVia(via);
+            utente.setCap(cap);
+            utente.setPaese(paese);
+            utente.setNumero(numero);
+            utente.setAdmin(false);
 
-        synchronized (session){
-            Utente u = (Utente) session.getAttribute("utente");
-            if(u == null){
-                session.setAttribute("utente", utente);
-                session.setAttribute("isLogged", true);
-            }
+            UtenteDAO.doSave(utente);
+
+            HttpSession session = request.getSession();
+            session.setAttribute("utente", utente);
+            session.setAttribute("isLogged", true);
+
+        } else {
+            List<String> errors = requestValidator.getErrors();
+            request.setAttribute("errors", errors);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+            dispatcher.forward(request, response);
         }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/IndexServlet");
         dispatcher.forward(request, response);
     }

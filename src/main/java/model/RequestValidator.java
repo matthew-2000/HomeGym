@@ -12,7 +12,7 @@ public class RequestValidator {
     private final HttpServletRequest request;
     private static final Pattern INT_PATTERN = Pattern.compile("^\\d+$");
     private static final Pattern DOUBLE_PATTERN = Pattern.compile("^(-)?(0|[1-9]\\d+)\\.\\d+$");
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$");
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
 
     public RequestValidator(HttpServletRequest request) {
         this.errors = new ArrayList<>();
@@ -65,11 +65,11 @@ public class RequestValidator {
 
     public boolean assertEmail(String value, String msg){
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
-        return assertMatch(value, pattern,msg);
+        return assertMatch(value, pattern, msg);
     }
 
     public boolean assertPassword(String value, String msg){
-        return assertMatch(value, PASSWORD_PATTERN, msg );
+        return assertMatch(value, PASSWORD_PATTERN, msg);
     }
 
     public boolean equalEmail(String email1, String email2, String msg){

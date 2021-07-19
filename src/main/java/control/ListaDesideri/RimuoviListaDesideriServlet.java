@@ -1,9 +1,11 @@
 package control.ListaDesideri;
 
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import model.RequestValidator;
 import model.Utente;
 import model.UtenteDAO;
 
@@ -22,10 +24,27 @@ public class RimuoviListaDesideriServlet extends HttpServlet {
       HttpSession session = request.getSession();
       Utente u = (Utente) session.getAttribute("utente");
 
-      int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
-      UtenteDAO.doDeleteListaDesideri(u.getId(), idProdotto);
+      if (u == null) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+        dispatcher.forward(request, response);
+      } else {
+        RequestValidator requestValidator = new RequestValidator(request);
+        boolean idResult = requestValidator.assertInt("idProdotto", "Id prodotto non valido");
+
+        if (idResult) {
+          int id = Integer.parseInt(request.getParameter("idProdotto"));
+          UtenteDAO.doDeleteListaDesideri(u.getId(), id);
+        } else {
+          List<String> errors = requestValidator.getErrors();
+          request.setAttribute("errors", errors);
+          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");
+          dispatcher.forward(request, response);
+        }
+
+      }
 
       RequestDispatcher dispatcher = request.getRequestDispatcher("/ListaDesideriServlet");
       dispatcher.forward(request, response);
   }
+
 }
