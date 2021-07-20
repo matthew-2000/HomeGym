@@ -58,7 +58,7 @@ ul{
 }
 
 .footer-col ul li a{
-	font-size: 16px;
+	font-size: 100%;
 	text-transform: capitalize;
 	color: #272559;
 	text-decoration: none;

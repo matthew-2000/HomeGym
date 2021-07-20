@@ -29,10 +29,10 @@
     <div id="aggiungi-gruppo">
       <form action="ModificaGruppoServlet" method="post">
         <p>Nome: </p>
-        <input type="text" name="nomeGruppo" id="nomeId"><br>
+        <input type="text" name="nomeGruppo" id="nomeId" required><br>
 
         <p>ID Categoria: </p>
-        <input type="text" name="idCategoria" id="categoriaId"><br>
+        <input type="text" name="idCategoria" id="categoriaId" required><br>
         <button class="confermaModifiche" type="submit" name="azione" value="aggiungi">Conferma</button>
       </form>
       <button class="annullaModifiche">Annulla</button>

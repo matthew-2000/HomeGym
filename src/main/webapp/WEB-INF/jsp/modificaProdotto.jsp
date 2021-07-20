@@ -28,18 +28,12 @@
       <label for="descrizioneId">Descrizione: </label><br>
       <input type="text" name="descrizioneProdotto" id="descrizioneId" value="${prodotto.descrizione}"> <br>
 
-      <label for="quantitaId">Quantità: </label><br>
-      <input type="text" name="quantitaProdotto" id="quantitaId" value="${prodotto.quantita}"><br>
-
-      <label for="votoId">Voto: </label><br>
-      <input type="text" name="votoProdotto" id="votoId" value="${prodotto.voto}"><br>
-
       <label for="gruppoId">ID Gruppo</label><br>
       <input type="text" name="idGruppo" id="gruppoId" value="${prodotto.idGruppo}"><br>
 
       <button type="submit" name="azione" value="prodotto">Modifica</button>
     </form>
-    <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModProdottiServlet'">Annulla</button>
+    <button onclick="location.href='${pageContext.request.contextPath}/ModProdottiServlet'">Annulla</button>
   </div>
 
   <%@include file="footer.jsp"%>

@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.Gruppo;
 import model.GruppoDAO;
 import model.Prodotto;
@@ -20,6 +21,8 @@ public class ModProdottiServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
+
         List<Prodotto> prodotti = ProdottoDAO.doRetrieveAll();
 
         request.setAttribute("prodotti", prodotti);

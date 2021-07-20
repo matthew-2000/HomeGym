@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.Categoria;
 import model.CategoriaDAO;
 import model.Gruppo;
@@ -21,6 +22,7 @@ public class ModificaGruppoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
 
         String azione = request.getParameter("azione");
 
@@ -33,7 +35,7 @@ public class ModificaGruppoServlet extends HttpServlet {
                 case "aggiungi" :
                     boolean b = false;
                     String nome = request.getParameter("nomeGruppo");
-                    if (nome != null) {
+                    if (nome != null && !nome.equals("")) {
                         boolean idResult = requestValidator.assertInt("idCategoria", "Id non valido!");
                         if (idResult) {
                             int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));

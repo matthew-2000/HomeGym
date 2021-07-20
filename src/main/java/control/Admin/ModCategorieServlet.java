@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.Categoria;
 import model.CategoriaDAO;
 
@@ -18,6 +19,7 @@ public class ModCategorieServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
         List<Categoria> cat = CategoriaDAO.doRetrieveAll();
 
         request.setAttribute("cat", cat);

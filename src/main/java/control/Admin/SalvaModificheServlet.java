@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.*;
 
 import javax.servlet.*;
@@ -17,6 +18,8 @@ public class SalvaModificheServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
+
         String azione = request.getParameter("azione");
         String address = "";
 

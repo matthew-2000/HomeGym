@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -9,6 +10,7 @@ import java.io.IOException;
 public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/admin.jsp");
         dispatcher.forward(request, response);
     }

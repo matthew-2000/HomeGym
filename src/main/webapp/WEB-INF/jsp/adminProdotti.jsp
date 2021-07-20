@@ -29,16 +29,16 @@
         <div id="aggiungi-prodotto">
             <form action="ModificaProdottoServlet" method="post">
                 <p>Nome: </p>
-                <input type="text" name="nomeProdotto" id="nomeId"><br>
+                <input type="text" name="nomeProdotto" id="nomeId" required><br>
 
                 <p>Prezzo: </p>
-                <input type="text" name="prezzoProdotto" id="prezzoId">
+                <input type="text" name="prezzoProdotto" id="prezzoId" required>
 
                 <p>Descrizione: </p>
-                <textarea name="descrizioneProdotto" id="descrizioneId"></textarea> <br>
+                <textarea name="descrizioneProdotto" id="descrizioneId" required></textarea> <br>
 
                 <p>ID Gruppo</p>
-                <input type="text" name="idGruppo" id="gruppoId"><br>
+                <input type="text" name="idGruppo" id="gruppoId" required><br>
 
                 <button class="confermaModifiche" type="submit" name="azione" value="aggiungi">Conferma</button>
             </form>

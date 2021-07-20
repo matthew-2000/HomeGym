@@ -28,7 +28,7 @@
 
             <button type="submit" name="azione" value="categoria">Modifica</button>
         </form>
-        <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModCategorieServlet'">Annulla</button>
+        <button onclick="location.href='${pageContext.request.contextPath}/ModCategorieServlet'">Annulla</button>
     </div>
 
     <%@include file="footer.jsp"%>

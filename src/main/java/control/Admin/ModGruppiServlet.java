@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.Categoria;
 import model.CategoriaDAO;
 import model.Gruppo;
@@ -20,6 +21,8 @@ public class ModGruppiServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
+
         List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();
 
         request.setAttribute("gruppi", gruppi);

@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import model.Gruppo;
 import model.GruppoDAO;
 import model.Prodotto;
@@ -21,6 +22,8 @@ public class ModificaProdottoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
+
         String azione = request.getParameter("azione");
         if (azione != null) {
             String address = "";
@@ -36,7 +39,7 @@ public class ModificaProdottoServlet extends HttpServlet {
                     if (idGruppoResult && prezzoResult) {
                         String nome = request.getParameter("nomeProdotto");
                         String descrizione = request.getParameter("descrizioneProdotto");
-                        if (nome != null && descrizione != null){
+                        if (nome != null && descrizione != null && !nome.equals("") && !descrizione.equals("")){
                             double prezzo = Double.parseDouble(request.getParameter("prezzoProdotto"));
                             int idGruppo = Integer.parseInt(request.getParameter("idGruppo"));
 

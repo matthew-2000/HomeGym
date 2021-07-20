@@ -1,5 +1,6 @@
 package control.Admin;
 
+import control.MyException;
 import java.util.List;
 import model.Categoria;
 import model.CategoriaDAO;
@@ -19,6 +20,8 @@ public class ModificaCategoriaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        MyException.checkAdmin(request);
+
         String azione = request.getParameter("azione");
 
         if (azione != null) {
@@ -30,7 +33,7 @@ public class ModificaCategoriaServlet extends HttpServlet {
                 case "aggiungi" : //Aggiungi
                     String nome = request.getParameter("nomeCategoria");
                     String descrizione = request.getParameter("descrizioneCategoria");
-                    if (nome != null && descrizione != null) {
+                    if (nome != null && descrizione != null && !nome.equals("") && !descrizione.equals("")) {
                         Categoria categoria = new Categoria();
                         categoria.setNome(nome);
                         categoria.setDescrizione(descrizione);

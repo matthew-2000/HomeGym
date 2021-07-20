@@ -27,7 +27,7 @@
 
             <button type="submit" name="azione" value="gruppo">Modifica</button>
         </form>
-        <button onclick="location.href='http://localhost:8080/HomeGym_war_exploded/ModGruppiServlet'">Annulla</button>
+        <button onclick="location.href='${pageContext.request.contextPath}/ModGruppiServlet'">Annulla</button>
     </div>
 
     <%@include file="footer.jsp"%>
