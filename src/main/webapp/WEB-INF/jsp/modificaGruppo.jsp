@@ -16,7 +16,7 @@
 
     <div class="card">
         <h1 class="title">Qui puoi modificare il Gruppo ${gruppo.nome}</h1>
-        <form action="SalvaModificheServlet" method="get">
+        <form action="SalvaModificheServlet" method="post">
             <input type="hidden" name="id" value="${gruppo.id}">
 
             <label for="nomeId">Nome: </label><br>

@@ -87,8 +87,6 @@ public class SalvaModificheServlet extends HttpServlet {
                 String nomeProdotto = request.getParameter("nomeProdotto");
                 double prezzo = Double.parseDouble(request.getParameter("prezzoProdotto"));
                 String descrizioneProdotto = request.getParameter("descrizioneProdotto");
-                int quantita = Integer.parseInt(request.getParameter("quantitaProdotto"));
-                double voto = Double.parseDouble(request.getParameter("votoProdotto"));
                 int idGroup = Integer.parseInt(request.getParameter("idGruppo"));
 
                 List<Gruppo> gruppi = GruppoDAO.doRetrieveAll();

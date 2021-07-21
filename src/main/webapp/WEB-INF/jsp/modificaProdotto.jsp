@@ -16,7 +16,7 @@
 
   <div class="card">
     <h1 class="title">Qui puoi modificare il Prodotto ${prodotto.nome}</h1>
-    <form action="SalvaModificheServlet" method="get">
+    <form action="SalvaModificheServlet" method="post">
       <input type="hidden" name="id" value="${prodotto.id}">
 
       <label for="nomeId">Nome: </label><br>

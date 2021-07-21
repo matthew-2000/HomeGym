@@ -24,12 +24,12 @@
         <div class="card">
             <h1>Gestisci Gruppi</h1>
             <p>Qui puoi modificare i gruppi</p>
-            <a href="${pageContext.request.contextPath}/ModGruppiServlet"><img src="./images/icons/account.png"></a>
+            <a href="${pageContext.request.contextPath}/ModGruppiServlet"><img src="./images/icons/gruppi.png"></a>
         </div>
         <div class="card">
             <h1>Gestisci Prodotti</h1>
             <p>Qui puoi modificare i prodotti</p>
-            <a href="${pageContext.request.contextPath}/ModProdottiServlet"><img src="./images/icons/account.png"></a>
+            <a href="${pageContext.request.contextPath}/ModProdottiServlet"><img src="./images/icons/prodotti.png"></a>
         </div>
     </div>
 

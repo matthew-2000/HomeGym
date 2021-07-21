@@ -22,10 +22,7 @@ public class ImmaginiProdottiDAO {
                 im.setPath(rs.getString(3));
                 lista.add(im);
             }
-            if(lista.size() > 0)
-                return lista;
-            else
-                return null;
+            return lista;
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
@@ -43,10 +40,7 @@ public class ImmaginiProdottiDAO {
                 im.setPath(rs.getString(3));
                 lista.add(im);
             }
-            if(lista.size() > 0)
-                return lista;
-            else
-                return null;
+            return lista;
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
@@ -63,10 +57,7 @@ public class ImmaginiProdottiDAO {
                 im = rs.getString(3);
                 lista.add(im);
             }
-            if(lista.size() > 0)
-                return lista;
-            else
-                return null;
+            return lista;
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
