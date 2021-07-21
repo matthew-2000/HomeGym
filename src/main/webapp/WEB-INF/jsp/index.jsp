@@ -39,7 +39,7 @@
                     <img src="${venduto.getFirstImmagine()}">
                     <p class="price">€${venduto.prezzo}</p>
                     <div id="button-container">
-                        <form action="ProdottoServlet" method="post">
+                        <form action="ProdottoServlet" method="get">
                             <button type="submit" id="visualizza" value="${venduto.id}" name="idProdotto">Visualizza</button>
                         </form>
                         <form action="AggiungiCarrelloServlet" method="post">

@@ -36,7 +36,7 @@
                         <img src="${prodotto.getFirstImmagine()}">
                         <p class="price">€${prodotto.prezzo}</p>
                         <div id="button-container">
-                            <form action="ProdottoServlet" method="post">
+                            <form action="ProdottoServlet" method="get">
                                 <button type="submit" id="visualizza" value="${prodotto.id}" name="idProdotto">Visualizza</button>
                             </form>
                             <form action="RimuoviListaDesideriServlet" method="post">
