@@ -78,17 +78,32 @@
 
         function showSlides(n) {
             var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+
+            //se n è maggiore del numero di immagini allora l'indice diventa 1
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+
+            //se n è minore di 1 allora l'indice punterà all'ultima immagine
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+
+            //eliminiamo tutte le immagini
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
+
+            //rendiamo 'inattivi' tutti i dots
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
+
+            //rendiamo visibile l'immagine che corrisponde all'indice
             slides[slideIndex-1].style.display = "block";
+            //rendimo attivo il dot che corrisponde all'indice
             dots[slideIndex-1].className += " active";
         }
 

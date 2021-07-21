@@ -12,7 +12,7 @@ function emailValidate(email) {
 }
 
 function passwordValidate(password) {
-    const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; //Minimum eight characters, at least one letter and one number
+    const passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     const passwordResult = passwordRegEx.test(password);
 
     if (!passwordResult) {
@@ -24,7 +24,7 @@ function passwordValidate(password) {
 }
 
 function textValidate(text, title) {
-    const textRegEx = /^[a-zA-Z ]{1,20}$/;
+    const textRegEx = /^[a-zA-Z0-9\s]+$/;
     const textResult = textRegEx.test(text);
 
     if (!textResult) {
