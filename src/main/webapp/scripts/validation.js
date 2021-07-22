@@ -16,7 +16,7 @@ function passwordValidate(password) {
     const passwordResult = passwordRegEx.test(password);
 
     if (!passwordResult) {
-        alert("Password non valida!");
+        alert("Password non valida!\nLa password deve essere di almeno 8 caratteri, deve contenere un numero, una lettera maiuscola, una lettera minuscola e un carattere speciale.");
         return false;
     }
 
