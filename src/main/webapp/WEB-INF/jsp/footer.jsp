@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: matteo
-  Date: 14/05/21
-  Time: 11:31
-  To change this template use File | Settings | File Templates.
---%>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">

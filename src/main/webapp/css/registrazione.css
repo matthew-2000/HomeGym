@@ -96,7 +96,7 @@ body {
 }
 
 #errorMessage{
-    background-color: red;
+    background-color: #f73e5a;
     border-radius: 10px;
     color: white;
 }
