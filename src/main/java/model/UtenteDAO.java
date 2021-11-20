@@ -82,7 +82,7 @@ public class UtenteDAO {
             }
             return null;
         }catch (SQLException e){
-            throw new RuntimeException(e);
+            throw new RuntimeException(e) ;
         }
     }
 
