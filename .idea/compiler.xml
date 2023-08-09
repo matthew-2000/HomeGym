@@ -9,8 +9,5 @@
         <module name="HomeGym" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="HomeGym" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

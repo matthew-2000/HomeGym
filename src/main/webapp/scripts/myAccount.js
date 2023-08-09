@@ -1,4 +1,4 @@
-$(document).ready(function (){
+ $(document).ready(function (){
     $("#accountCard").click(function (){
         $("#container-myaccount").show("slow");
         $(".lista_card").css("filter", "blur(5px)");
