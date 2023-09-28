@@ -2,11 +2,11 @@
 
 ![Logo di HomeGym](src/main/webapp/images/logo.png)
 
-Benvenuti in HomeGym, il tuo negozio online di attrezzi sportivi e per la palestra. Questo progetto è stato sviluppato come parte del corso di Tecnologie Software per il Web presso l'Università degli Studi di Salerno nel 2021.
+Benvenuti in HomeGym, il tuo negozio online di attrezzi sportivi e per la palestra. Questo progetto è stato sviluppato come parte del corso di Tecnologie Software per il Web presso l'Università degli Studi di Salerno 👨🏻‍🎓.
 
 ## Descrizione
 
-HomeGym è un sito e-commerce che offre una vasta selezione di attrezzi sportivi e per la palestra. Gli utenti possono sfogliare e acquistare prodotti, visualizzare dettagli, aggiungere articoli al carrello e completare il processo di acquisto.
+HomeGym è un sito e-commerce che offre una vasta selezione di attrezzi sportivi e per la palestra 🏋🏻. Gli utenti possono sfogliare e acquistare prodotti, visualizzare dettagli, aggiungere articoli al carrello e completare il processo di acquisto.
 
 ## Tecnologie Utilizzate
 
@@ -53,8 +53,8 @@ Siamo aperti a contributi dalla community! Se vuoi partecipare allo sviluppo di 
 
 ## Autori
 
-- [Matteo Ercolino](https://github.com/matthew-2000) - Sviluppatore e Project Manager.
-- Jacopo De Dominicis - Sviluppatore.
+- [Matteo Ercolino](https://github.com/matthew-2000) - Sviluppatore e Project Manager
+- Jacopo De Dominicis - Sviluppatore
 
 ## Licenza
 
